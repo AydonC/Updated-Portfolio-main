@@ -5,6 +5,7 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials ";
 import Spinner from "../components/Spinner"; // Import the Spinner component
+import Banner from "../components/Banner";
 
 
 const ProfilePage = () => {
@@ -52,13 +53,9 @@ const ProfilePage = () => {
                 {/* Banner */}
                 <div className="relative">
                     <div className="bg-blue-100 w-full h-full rounded-lg overflow-hidden border rounded">
-                        <div >
-                            <img
-                                src="/banner.jpeg"
-                                alt="Profile"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
+                       
+                           <Banner/>
+                       
                     </div>
 
                     {/* Profile Picture */}
