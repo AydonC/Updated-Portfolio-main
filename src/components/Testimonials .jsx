@@ -23,6 +23,16 @@ const postsData = [
         image: null,
         video: null,
     },
+    {
+        id: 4,
+        user: 'Really Not Aydon Cupido',
+        username: '@ReallyNotaydonC',
+        profileImage: '/him.jpg',
+        content: 'Aydon is the best out there!🐐',
+        profileUrl: 'https://www.linkedin.com/in/aydon-jon-cupido-22b513286/',
+        image: null,
+        video: null,
+    },
 
 ];
 
