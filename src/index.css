@@ -1,0 +1,15 @@
+
+/* src/styles.css or in your global styles file */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
