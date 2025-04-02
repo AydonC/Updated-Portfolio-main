@@ -97,7 +97,7 @@ const ContactFormModal = () => {
 
             {/* Modal */}
             {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center">
+                <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
                     <div className="bg-[#1c1c1e] p-6 rounded-2xl shadow-lg w-96 text-center border border-purple-300">
                         <h2 className="text-2xl text-gray-300 font-semibold mb-4">Leave a message!</h2>
 
