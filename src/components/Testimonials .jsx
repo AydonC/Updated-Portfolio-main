@@ -68,7 +68,7 @@ const Testimonials = () => {
                             <p className="text-sm text-gray-500">{post.username}</p>
                         </div>
                     </div>
-                    <p className="mb-2">{post.content}</p>
+                    <pre className="mb-2">{post.content}</pre>
                     <ContactFormModal />
 
                     {post.image && (
