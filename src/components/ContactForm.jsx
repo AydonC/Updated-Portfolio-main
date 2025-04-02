@@ -142,7 +142,7 @@ const ContactFormModal = () => {
 
                             <div className="mb-4">
                                 <label htmlFor="profileLink" className="block text-sm font-medium text-gray-300">
-                                    Profile Link -Optional (LinkedIn, portfolio,GitHub)
+                                    Profile Link -Optional (https:// + LinkedIn, portfolio,GitHub)
                                 </label>
                                 <input
                                     type="url"
