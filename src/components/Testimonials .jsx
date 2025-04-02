@@ -17,7 +17,7 @@ const postsData = [
         user: 'Mahomed Goolam',
         username: '@MahomedGoolam',
         profileImage: '/default.png',
-        content: 'Aydon has demonstrated exceptional performance and dedication throughout his studies and learnership, consistently delivering high-quality work that exceeds the average standard expected for his level. His contributions to live client projects have been of high quality, showcasing his strong technical ability and problem-solving skills. Aydon has excelled in both Front-End (React JS) and Back-End development, completing his assigned tickets with a strong focus on quality and efficiency. Aydon’s hands-on, practical approach has been a significant asset to the team, and his ability to consistently complete tasks underscores his reliability and commitment to excellence. <br> You are destined for greatness Aydon Cupido!',
+        content: 'Aydon has demonstrated exceptional performance and dedication throughout his studies and learnership, consistently delivering high-quality work that exceeds the average standard expected for his level. His contributions to live client projects have been of high quality, showcasing his strong technical ability and problem-solving skills. Aydon has excelled in both Front-End (React JS) and Back-End development, completing his assigned tickets with a strong focus on quality and efficiency. Aydon’s hands-on, practical approach has been a significant asset to the team, and his ability to consistently complete tasks underscores his reliability and commitment to excellence.You are destined for greatness Aydon Cupido!',
         profileUrl: 'https://www.linkedin.com/in/mahomed-hoosen-goolam-nabee-a820b6149',
         image: null,
         video: null,
@@ -103,7 +103,7 @@ const Testimonials = () => {
                             <p className="text-sm text-gray-500">{post.username}</p>
                         </div>
                     </div>
-                    <p dangerouslySetInnerHTML={{ __html: post.content }}  className="mb-2">{post.content}</p>
+                    <p className="mb-2">{post.content}</p>
 
                     {/* Conditional rendering for image or video */}
                     {post.image && (
