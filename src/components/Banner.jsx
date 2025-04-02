@@ -12,7 +12,7 @@ const shapes = [...Array(15)].map(() => ({
 const Banner = () => {
   return (
     <motion.div
-      className="relative w-full h-[250px] flex items-center justify-center overflow-hidden"
+      className="relative w-full h-[250px] flex items-center justify-center overflow-hidden z-40"
       animate={{
         background: [
           "linear-gradient(45deg, #1e1b4b, #3b0764, #0f172a)",
