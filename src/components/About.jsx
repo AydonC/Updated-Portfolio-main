@@ -19,7 +19,14 @@ const About = () => {
                         - SQL Server 🗃️
                     </p>
                     <br /><br />
-                    <h2 className="text-2xl font-semibold text-white-950">My Qualifications 💡</h2>
+                    <h2 className="text-2xl font-semibold text-white-950">My Skills 💡</h2>
+                     <p className="text-gray-400 mt-2">
+                         - Skilled in C#, SQL Server, and React.js for building scalable web applications. 🛠️ <br />
+                         - Proficient in version control using Github and Azure for efficient collaboration and code management. 🔧 <br />
+                         - Currently upskilling in PostgreSQL and Figma to enhance database management and design capabilities. 📊 🎨 <br />
+                         - Strong leadership and project management skills to guide teams and drive successful project execution. 💼</p>
+                         <br /><br />   
+                    <h2 className="text-2xl font-semibold text-white-950">My Qualifications 📝</h2>
                     <p className="text-gray-400 mt-2">
                         - Higher Certificate in Software Engineering  <br />
                         - Higher Certificate in Software Development  <br />
