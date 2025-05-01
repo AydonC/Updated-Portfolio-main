@@ -24,9 +24,9 @@ const Banner = () => {
     >
       {/* Animated Profile Image */}
       <motion.img
-        src="/wall2.png"
+        src="/wall3.png"
         alt="Profile"
-        className="w-80 h-80 mt-12  z-[49]"
+        className="w-80 h-80 mt-12  z-[30]"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

@@ -47,19 +47,43 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="bg-gray-950 min-h-screen text-white">
+        <div className="relative bg-gray-950 min-h-screen text-white z-20 overflow-hidden" >
+            {/* Background Logo */}
+            <img
+                src="/logoMain.png"
+                alt="Background Logo"
+                className="fixed top-[65%] right-0 w-[600px] opacity-20 -translate-y-1/2 z-0 pointer-events-none select-none"
+            />
+            <div className="relative sm:fixed top-4 left-4 z-50 flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
+                <img
+                    src="/logoMain.png"
+                    alt="Logo"
+                    className="w-16 h-16 sm:w-24 sm:h-24 object-contain"
+                />
+                <a
+                    href="/AydonCV.pdf"
+                    download
+                    className="text-white hover:underline font-medium text-sm sm:text-base"
+                >
+                    Download CV
+                </a>
+            </div>
+
+
+
+
             {isLoading && <Spinner />}
             <div className="max-w-3xl mx-auto px-4 pt-8 pb-16">
                 {/* Banner */}
                 <div className="relative">
                     <div className="bg-blue-100 w-full h-full rounded-lg overflow-hidden border rounded">
-                       
-                           <Banner/>
-                       
+
+                        <Banner />
+
                     </div>
 
                     {/* Profile Picture */}
-                    <div className="absolute -bottom-24 left-1 transform translate-x-1/3">
+                    <div className="absolute -bottom-24 left-1 transform translate-x-1/3 z-40">
                         <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-white-900 bg-gray-300 ">
                             <img
                                 src="/aydon.jpg"
@@ -80,9 +104,13 @@ const ProfilePage = () => {
                     </div>
                     <div className="text-gray-500 font-semibold mb-2 flex items-center ml-14">
                         @aydonC
+                        <br />
+                        Founder @ InnovAyd
+
                     </div>
                     <p className="text-lg mb-1 ml-14">Dream in logic, build with code, and turn ideas into reality.🚀</p>
                     <p className="text-gray-300 mb-4 ml-14">
+
                         Full Stack Engineer. Innovative Developer.
                     </p>
 
