@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
     return (
-        <div className="bg-gray-950 flex items-center justify-center p-6">
+        <div className="bg-gray-950 flex items-center justify-center p-6 ">
             <div className="max-w-4xl bg-gray-950 shadow-lg rounded-lg p-8">
                 <h1 className="text-3xl font-bold text-white-950 mb-4">Hi There! 👋</h1>
                 <p className="text-gray-400 leading-relaxed">
@@ -34,7 +34,7 @@ const About = () => {
                 <div className="mt-6">
                     <h2 className="text-2xl font-semibold text-white-800 sm:text-xl md:text-2xl lg:text-3xl"></h2>
                     <div className="flex flex-wrap items-center mt-4 space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-6">
-                        <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-white bg-gray-300 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-48 lg:h-48">
+                        <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-white bg-gray-300 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-48 lg:h-48 z-[40] relative">
                             <img
                                 src="/aydon.jpg"
                                 alt="Profile"

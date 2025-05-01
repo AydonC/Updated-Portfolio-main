@@ -34,7 +34,7 @@ const postsData = [
 
 const Feed = () => {
     return (
-        <div className="max-w-2xl mx-auto p-4">
+        <div className="max-w-2xl mx-auto p-4 ">
 
             {/* Pinned Post Label above the first post */}
             <div className="text-gray-500 font-semibold mb-4 flex items-center">
@@ -43,7 +43,7 @@ const Feed = () => {
 
             {/* First Post (Post with id 1) */}
             {postsData.slice(0, 1).map(post => (
-                <div key={post.id} className="bg-gray-950 p-4 rounded-lg shadow-md mb-4 hover:bg-gray-800">
+                <div key={post.id} className="bg-gray-950 p-4 rounded-lg shadow-md mb-4 hover:bg-gray-800 ">
                     <div className="flex items-center mb-2">
                         <img
                             src={post.profileImage}
@@ -60,7 +60,7 @@ const Feed = () => {
 
                     {post.image && (
                         <div className="mb-2">
-                            <img src={post.image} alt="Post Media" className="w-full rounded-lg" />
+                            <img src={post.image} alt="Post Media" className="w-full rounded-lg z-[40] relative" />
                         </div>
                     )}
 
@@ -95,7 +95,7 @@ const Feed = () => {
                     {/* Conditional rendering for image or video */}
                     {post.image && (
                         <div className="mb-2">
-                            <img src={post.image} alt="Post Media" className="w-full rounded-lg" />
+                            <img src={post.image} alt="Post Media" className="w-full rounded-lg z-[40] relative" />
                         </div>
                     )}
 

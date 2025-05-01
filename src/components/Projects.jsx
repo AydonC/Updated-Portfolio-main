@@ -57,7 +57,7 @@ const postsData = [
         profileImage: '/aydon.jpg',
         content: '🕹️ A Hangman game where users have to guess words before the hangman figure is completed.',
         tools: '🖥️ C# Windows Forms',
-        image: '/hangman.png',
+        image: '/hangman.PNG',
         video: null,
         githubLink: 'https://github.com/AydonC/Hangman', // GitHub link for the project
     },
@@ -65,7 +65,7 @@ const postsData = [
 
 const Projects = () => {
     return (
-        <div className="max-w-2xl mx-auto p-4">
+        <div className="max-w-2xl mx-auto p-4 ">
             {/* Pinned Post Label above the first post */}
             <div className="text-gray-500 font-semibold mb-4 flex items-center">
                 <i className="fas fa-thumbtack mr-2"></i> &nbsp; Pinned Project
@@ -78,7 +78,7 @@ const Projects = () => {
                         <img
                             src={post.profileImage}
                             alt="Profile"
-                            className="w-12 h-12 rounded-full mr-4"
+                            className="w-12 h-12 rounded-full mr-4 z-[40] relative"
                         />
                         <div>
                             <h3 className="font-bold">{post.user}</h3>
@@ -92,7 +92,7 @@ const Projects = () => {
 
                     {post.image && (
                         <div className="mb-2">
-                            <img src={post.image} alt="Post Media" className="w-full rounded-lg" />
+                            <img src={post.image} alt="Post Media" className="w-full rounded-lg z-[40] relative" />
                         </div>
                     )}
 
@@ -149,7 +149,7 @@ const Projects = () => {
                     {/* Conditional rendering for image or video */}
                     {post.image && (
                         <div className="mb-2">
-                            <img src={post.image} alt="Post Media" className="w-full rounded-lg" />
+                            <img src={post.image} alt="Post Media" className="w-full rounded-lg z-[40] relative" />
                         </div>
                     )}
 
