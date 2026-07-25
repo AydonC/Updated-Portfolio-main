@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-    SiReact, SiJavascript, SiHtml5, SiSharp, SiDotnet,
-    SiPostgresql, SiFirebase, SiFigma, SiGithub,
+    SiReact, SiJavascript, SiSharp, SiDotnet, SiPostgresql, SiGit,
 } from "react-icons/si";
 import {
     LuRocket, LuCompass, LuLayers, LuHandshake, LuGraduationCap,
-    LuDatabase, LuCloud, LuCheck, LuBadgeCheck,
+    LuDatabase, LuCloud, LuCheck, LuBadgeCheck, LuKanban, LuTrophy,
+    LuLanguages,
 } from "react-icons/lu";
 import { handleSpotlight } from "../lib/motion";
 
@@ -14,53 +14,52 @@ const current = {
     role: "Junior Software Engineer",
     company: "redPanda Software",
     location: "Cape Town",
-    period: "June 2025 – Present",
+    period: "Jun 2025 – Present",
     points: [
-        "Building scalable web applications with React.js and APIs with C#",
-        "Monitoring and maintaining services for continuous delivery",
-        "Resolving UAT issues and improving system stability during client testing",
-        "Collaborating with cross-functional teams in an agile environment",
+        "Contributed to live business management systems in an Agile team, owning full-stack feature delivery and RESTful API development with React.js, C#, ASP.NET Web APIs, PostgreSQL and SQL Server",
+        "Improved application reliability by resolving bugs, performing maintenance and supporting performance enhancements across production systems",
+        "Supported UAT, troubleshooting, deployments and post-release issue resolution to keep releases stable and user-ready",
+        "Collaborated with cross-functional stakeholders to deliver software updates aligned with business needs",
     ],
 };
 
 const experience = [
     {
-        role: "Software Developer Sprinter",
+        role: "Junior Software Developer Intern",
         company: "redAcademy",
         location: "Cape Town",
-        period: "June 2024 – May 2025",
+        period: "Jun 2024 – May 2025",
         points: [
-            "Built web apps including Financial Calculators and Central Maintenance projects",
-            "Crafted React.js user interfaces and designed them in Figma",
-            "Unit testing, API integration and PostgreSQL databases",
+            "Supported the development of financial calculators and central maintenance systems, contributing across front-end and back-end tasks",
+            "Enhanced usability and functionality by building interfaces in React.js and JavaScript and supporting API integration and PostgreSQL work",
+            "Applied unit testing, Figma-based UI design, Agile practices and SDLC workflows to deliver cleaner, more maintainable features",
         ],
     },
     {
-        role: "Network+ Learnership",
+        role: "Learnership for Network+",
         company: "Vistex Africa",
         location: "Stellenbosch",
-        period: "Dec 2023 – April 2024",
+        period: "Dec 2023 – Apr 2024",
         points: [
-            "Trained toward the CompTIA Network+ certification",
-            "Networking fundamentals: infrastructure, protocols, troubleshooting & security",
+            "Earned the CompTIA Network+ certification, building foundational networking knowledge (TCP/IP, routing, troubleshooting)",
+            "Applied that grounding to better support web applications, APIs and deployment environments",
         ],
     },
 ];
 
 const techStack = [
     {
-        group: "Frontend",
+        group: "Languages",
         items: [
-            { icon: SiReact, label: "React.js", color: "#61DAFB" },
+            { icon: SiSharp, label: "C#", color: "#9B5FB0" },
             { icon: SiJavascript, label: "JavaScript", color: "#F7DF1E" },
-            { icon: SiHtml5, label: "HTML & CSS", color: "#E34F26" },
         ],
     },
     {
-        group: "Backend",
+        group: "Frameworks",
         items: [
-            { icon: SiSharp, label: "C#", color: "#9B5FB0" },
-            { icon: SiDotnet, label: ".NET Web API", color: "#512BD4" },
+            { icon: SiDotnet, label: "ASP.NET Web API", color: "#512BD4" },
+            { icon: SiReact, label: "React.js", color: "#61DAFB" },
         ],
     },
     {
@@ -71,31 +70,34 @@ const techStack = [
         ],
     },
     {
-        group: "Tools & Design",
+        group: "Cloud & Tools",
         items: [
-            { icon: SiGithub, label: "GitHub", color: "#e5e5e5" },
             { icon: LuCloud, label: "Azure", color: "#3AA0E3" },
-            { icon: SiFirebase, label: "Firebase", color: "#FFCA28" },
-            { icon: SiFigma, label: "Figma", color: "#F24E1E" },
+            { icon: SiGit, label: "Git", color: "#F05032" },
+            { icon: LuKanban, label: "Agile PM", color: "#A855F7" },
         ],
     },
 ];
 
 const canBring = [
-    "2 years of hands-on experience shipping React & C# applications",
-    "Clean, maintainable code and efficient back-end APIs",
-    "Full-stack range — frontend, backend and databases",
-    "Agile teamwork and cross-functional collaboration",
-    "A problem-solver's mindset focused on stability and detail",
-    "Design sensibility (Figma) for user-friendly interfaces",
+    "Hands-on experience shipping production web apps with C#, ASP.NET Web APIs and React.js",
+    "End-to-end delivery: RESTful APIs, bug fixes, performance improvements and unit testing",
+    "Deployments and UAT support that keep live releases stable and user-ready",
+    "Agile teamwork and collaboration with cross-functional stakeholders",
+    "Full-stack range across front-end, back-end, SQL Server and PostgreSQL",
+    "A problem-solver's mindset focused on reliability and detail",
+];
+
+const accomplishments = [
+    "Built a Leave Management System that replaced Excel-based tracking — automating leave logging across leave types to improve accuracy and save employee hours",
+    "Developed a School Website with an Admin Dashboard that centralised school communication, reducing reliance on social media and making information accessible to all stakeholders",
 ];
 
 const education = [
-    "Higher Certificate in Software Engineering — Eduvos, Tyger Valley",
-    "Higher Certificate in Software Development — Eduvos, Tyger Valley",
-    "Higher Certificate in Systems Development — redAcademy, Cape Town",
+    "Higher Certificate in Software Engineering — Eduvos, Tyger Valley · 2023–2024 · 83%",
+    "Higher Certificate in Software Development — Eduvos, Tyger Valley · 2022–2023 · 83%",
+    "Higher Certificate in Systems Development — redAcademy · 2024–2025",
     "CompTIA Network+ — Vistex Africa, Stellenbosch",
-    "Foundation in Project Management — Google",
 ];
 
 const fadeUp = {
@@ -162,16 +164,19 @@ const About = () => {
             >
                 <h1 className="text-3xl font-bold text-white">Hi There! 👋</h1>
                 <p className="mt-4 leading-relaxed text-gray-300">
-                    I'm <span className="font-semibold text-white">Aydon Jon Cupido</span> — a
-                    full-stack engineer with <span className="font-semibold text-white">2 years of
-                    experience</span> in React, C# and SQL Server. 💻 I build scalable web
-                    applications and efficient back-end APIs, writing clean, maintainable code and
-                    solving complex problems along the way. 🎨
+                    I'm <span className="font-semibold text-white">Aydon Cupido</span> — a
+                    <span className="font-semibold text-white"> Full Stack Software Engineer</span> with
+                    hands-on experience building production web applications using C#, ASP.NET Web APIs,
+                    React.js, JavaScript, PostgreSQL, SQL Server, Azure and Git. I've delivered end-to-end
+                    features, RESTful APIs, bug fixes, performance improvements, unit testing, deployments
+                    and UAT support across live systems in Agile teams. 💻
                 </p>
                 <p className="mt-4 leading-relaxed text-gray-400">
-                    I'm passionate about creating user-friendly solutions and constantly levelling up
-                    my technical skills. 🚀 I'm a team player 🤝 who's detail-oriented and driven by
-                    delivering results. 🔍
+                    I've contributed at <span className="font-medium text-purple-300">redPanda Software</span> and
+                    <span className="font-medium text-purple-300"> redAcademy</span> on business management
+                    systems, financial calculators and maintenance platforms, and built personal projects
+                    including a Leave Management System and a School Website with an Admin Dashboard. Backed by
+                    three Higher Certificates in software-related fields, two completed at 83%. 🚀
                 </p>
             </motion.div>
 
@@ -228,6 +233,22 @@ const About = () => {
                 </ul>
             </Section>
 
+            {/* Accomplishments */}
+            <Section title="Accomplishments" icon={LuTrophy}>
+                <div className="space-y-3">
+                    {accomplishments.map((item) => (
+                        <div
+                            key={item}
+                            onMouseMove={handleSpotlight}
+                            className="spotlight-card relative overflow-hidden flex items-start rounded-xl border border-purple-500/30 bg-purple-600/10 p-4 text-gray-200"
+                        >
+                            <LuTrophy className="mr-3 mt-0.5 h-5 w-5 shrink-0 text-purple-400" />
+                            <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </Section>
+
             {/* Education */}
             <Section title="Education & Certifications" icon={LuGraduationCap}>
                 <ul className="space-y-2">
@@ -238,6 +259,20 @@ const About = () => {
                         </li>
                     ))}
                 </ul>
+            </Section>
+
+            {/* Languages */}
+            <Section title="Languages" icon={LuLanguages}>
+                <div className="flex flex-wrap gap-2">
+                    {["English", "Afrikaans"].map((lang) => (
+                        <span
+                            key={lang}
+                            className="rounded-full bg-gray-900/60 px-3 py-1.5 text-sm font-medium text-gray-200 ring-1 ring-gray-700"
+                        >
+                            {lang}
+                        </span>
+                    ))}
+                </div>
             </Section>
 
             {/* Signature card */}
