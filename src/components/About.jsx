@@ -1,70 +1,221 @@
 import React from "react";
+import { motion } from "framer-motion";
+
+const current = {
+    role: "Junior Software Engineer",
+    company: "redPanda Software",
+    location: "Cape Town",
+    period: "June 2025 – Present",
+    points: [
+        "Building scalable web applications with React.js and APIs with C#",
+        "Monitoring and maintaining services for continuous delivery",
+        "Resolving UAT issues and improving system stability during client testing",
+        "Collaborating with cross-functional teams in an agile environment",
+    ],
+};
+
+const experience = [
+    {
+        role: "Software Developer Sprinter",
+        company: "redAcademy",
+        location: "Cape Town",
+        period: "June 2024 – May 2025",
+        points: [
+            "Built web apps including Financial Calculators and Central Maintenance projects",
+            "Crafted React.js user interfaces and designed them in Figma",
+            "Unit testing, API integration and PostgreSQL databases",
+        ],
+    },
+    {
+        role: "Network+ Learnership",
+        company: "Vistex Africa",
+        location: "Stellenbosch",
+        period: "Dec 2023 – April 2024",
+        points: [
+            "Trained toward the CompTIA Network+ certification",
+            "Networking fundamentals: infrastructure, protocols, troubleshooting & security",
+        ],
+    },
+];
+
+const techStack = [
+    { group: "Frontend", items: ["⚛️ React.js", "🟨 JavaScript", "🎨 HTML & CSS"] },
+    { group: "Backend", items: ["🖥️ C#", "🌐 .NET Web API"] },
+    { group: "Databases", items: ["🗃️ SQL Server", "🐘 PostgreSQL"] },
+    { group: "Tools & Design", items: ["🐙 GitHub", "☁️ Azure", "🔥 Firebase", "✏️ Figma"] },
+];
+
+const canBring = [
+    "2 years of hands-on experience shipping React & C# applications",
+    "Clean, maintainable code and efficient back-end APIs",
+    "Full-stack range — frontend, backend and databases",
+    "Agile teamwork and cross-functional collaboration",
+    "A problem-solver's mindset focused on stability and detail",
+    "Design sensibility (Figma) for user-friendly interfaces",
+];
+
+const education = [
+    "Higher Certificate in Software Engineering — Eduvos, Tyger Valley",
+    "Higher Certificate in Software Development — Eduvos, Tyger Valley",
+    "Higher Certificate in Systems Development — redAcademy, Cape Town",
+    "CompTIA Network+ — Vistex Africa, Stellenbosch",
+    "Foundation in Project Management — Google",
+];
+
+const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-40px" },
+    transition: { duration: 0.4 },
+};
+
+const Section = ({ title, children }) => (
+    <motion.section {...fadeUp} className="mt-8">
+        <h2 className="text-2xl font-semibold text-white">{title}</h2>
+        <div className="mt-3">{children}</div>
+    </motion.section>
+);
+
+const RoleCard = ({ role, company, location, period, points, highlight }) => (
+    <div
+        className={`rounded-2xl border p-5 ${
+            highlight
+                ? "border-purple-500/50 bg-purple-600/10"
+                : "border-gray-800 bg-gray-900/40"
+        }`}
+    >
+        <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+                <h3 className="text-lg font-semibold text-white">{role}</h3>
+                <p className="text-purple-300">
+                    {company} · <span className="text-gray-400">{location}</span>
+                </p>
+            </div>
+            <span
+                className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    highlight
+                        ? "bg-green-500/15 text-green-300 ring-1 ring-green-500/30"
+                        : "bg-gray-800 text-gray-300"
+                }`}
+            >
+                {period}
+            </span>
+        </div>
+        <ul className="mt-3 space-y-1.5 text-sm text-gray-300">
+            {points.map((p) => (
+                <li key={p} className="flex items-start">
+                    <span className="mr-2 text-purple-400">▹</span>
+                    <span>{p}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+);
 
 const About = () => {
     return (
-        <div className="bg-gray-950 flex items-center justify-center p-6 ">
-            <div className="max-w-4xl bg-gray-950 shadow-lg rounded-lg p-8">
-                <h1 className="text-3xl font-bold text-white-950 mb-4">Hi There! 👋</h1>
-                <p className="text-gray-400 leading-relaxed">
-                    I am Aydon Jon Cupido. A full-stack engineer with expertise in React.JS and C#. 💻 I love to code and to solve problems with creativity. 🎨
-                    <br /><br /><br />
-                    I am motivated Software Developer with a background in Software, completing 3 Higher Certifications with 80%+ averages. 🎓 I gained expertise in C#, Web APIs, SQL Server, React.js, HTML, and CSS. I acquired these skills through my studies and through a program at redAcademy where I gained experience as a Back-End and Front-End developer. My role gave me an opportunity to work on live projects and maintain systems efficiently. 🚀 I am always open to learning and I am a team player 🤝. I deliver results and I am detail-orientated. 🔍
+        <div className="mx-auto max-w-3xl p-4 sm:p-6">
+            {/* Intro */}
+            <motion.div
+                {...fadeUp}
+                className="rounded-2xl border border-gray-800 bg-gray-900/40 p-6 sm:p-8"
+            >
+                <h1 className="text-3xl font-bold text-white">Hi There! 👋</h1>
+                <p className="mt-4 leading-relaxed text-gray-300">
+                    I'm <span className="font-semibold text-white">Aydon Jon Cupido</span> — a
+                    full-stack engineer with <span className="font-semibold text-white">2 years of
+                    experience</span> in React, C# and SQL Server. 💻 I build scalable web
+                    applications and efficient back-end APIs, writing clean, maintainable code and
+                    solving complex problems along the way. 🎨
                 </p>
+                <p className="mt-4 leading-relaxed text-gray-400">
+                    I'm passionate about creating user-friendly solutions and constantly levelling up
+                    my technical skills. 🚀 I'm a team player 🤝 who's detail-oriented and driven by
+                    delivering results. 🔍
+                </p>
+            </motion.div>
 
-                <div className="mt-6">
-                    <h2 className="text-2xl font-semibold text-white-950">My Expertise Languages 🌍</h2>
-                    <p className="text-gray-400 mt-2">
-                        - ReactJS ⚛️ <br />
-                        - C# (Web API, .Net, Console, Windows Forms) 🖥️ <br />
-                        - SQL Server 🗃️
-                    </p>
-                    <br /><br />
-                    <h2 className="text-2xl font-semibold text-white-950">My Skills 💡</h2>
-                     <p className="text-gray-400 mt-2">
-                         - Skilled in C#, SQL Server, and React.js for building scalable web applications. 🛠️ <br />
-                         - Proficient in version control using Github and Azure for efficient collaboration and code management. 🔧 <br />
-                         - Currently upskilling in PostgreSQL and Figma to enhance database management and design capabilities. 📊 🎨 <br />
-                         - Strong leadership and project management skills to guide teams and drive successful project execution. 💼</p>
-                         <br /><br />   
-                    <h2 className="text-2xl font-semibold text-white-950">My Qualifications 📝</h2>
-                    <p className="text-gray-400 mt-2">
-                        - Higher Certificate in Software Engineering  <br />
-                        - Higher Certificate in Software Development  <br />
-                        - Higher Certificate in Systems Development  <br />
-                        - Foundation in Project Management from Google
-                    </p>
-        
-                    <br /><br />
-                    <strong>Feel free to connect with me and stay awesome! 🤩</strong>
+            {/* Currently doing */}
+            <Section title="What I'm Currently Doing 🚀">
+                <RoleCard {...current} highlight />
+            </Section>
+
+            {/* Experience */}
+            <Section title="My Journey 🧭">
+                <div className="space-y-4">
+                    {experience.map((job) => (
+                        <RoleCard key={job.company} {...job} />
+                    ))}
                 </div>
+            </Section>
 
-                <div className="mt-6">
-                    <h2 className="text-2xl font-semibold text-white-800 sm:text-xl md:text-2xl lg:text-3xl"></h2>
-                    <div className="flex flex-wrap items-center mt-4 space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-6">
-                        <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-white bg-gray-300 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-48 lg:h-48 z-[40] relative">
-                            <img
-                                src="/aydon.jpg"
-                                alt="Profile"
-                                className="w-full h-full object-cover"
-                            />
+            {/* Tech Stack */}
+            <Section title="My Tech Stack 🌍">
+                <div className="space-y-4">
+                    {techStack.map((cat) => (
+                        <div key={cat.group}>
+                            <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-purple-400">
+                                {cat.group}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                {cat.items.map((item) => (
+                                    <span
+                                        key={item}
+                                        className="rounded-full bg-purple-600/15 px-3 py-1.5 text-sm font-medium text-purple-200 ring-1 ring-purple-500/30 transition-colors hover:bg-purple-600/25"
+                                    >
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-
-                        <div className="sm:text-center md:text-left">
-                            <h3 className="text-lg font-medium text-white-700 sm:text-base md:text-lg lg:text-xl">Aydon Cupido</h3>
-                            <p className="text-gray-500 sm:text-sm md:text-base lg:text-lg">Software Engineer 👨‍💻</p>
-                        </div>
-
-                        <img
-                            src="/signature.png"
-                            alt="Profile"
-                            className="w-36 h-36 translate-x-1/2 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-48 lg:h-48"
-                        />
-                    </div>
-
-                    <br />
+                    ))}
                 </div>
+            </Section>
 
-            </div>
+            {/* What I can bring */}
+            <Section title="What I Can Bring 🤝">
+                <ul className="grid gap-3 sm:grid-cols-2">
+                    {canBring.map((item) => (
+                        <li
+                            key={item}
+                            className="flex items-start rounded-xl border border-gray-800 bg-gray-900/40 p-3 text-gray-300"
+                        >
+                            <span className="mr-2 text-purple-400">✓</span>
+                            <span>{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </Section>
+
+            {/* Education */}
+            <Section title="Education & Certifications 🎓">
+                <ul className="space-y-2">
+                    {education.map((q) => (
+                        <li key={q} className="flex items-start text-gray-300">
+                            <span className="mr-2">📜</span>
+                            <span>{q}</span>
+                        </li>
+                    ))}
+                </ul>
+            </Section>
+
+            {/* Signature card */}
+            <motion.div
+                {...fadeUp}
+                className="mt-8 flex flex-wrap items-center gap-6 rounded-2xl border border-gray-800 bg-gray-900/40 p-6"
+            >
+                <div className="h-28 w-28 overflow-hidden rounded-full border-2 border-purple-500/50 bg-gray-300">
+                    <img src="/aydon.jpg" alt="Aydon Cupido" className="h-full w-full object-cover" />
+                </div>
+                <div>
+                    <h3 className="text-xl font-semibold text-white">Aydon Cupido</h3>
+                    <p className="text-gray-400">Full Stack Engineer 👨‍💻</p>
+                    <p className="mt-2 font-medium text-purple-300">
+                        Feel free to connect with me and stay awesome! 🤩
+                    </p>
+                </div>
+                <img src="/signature.png" alt="Signature" className="ml-auto h-24 w-auto opacity-90" />
+            </motion.div>
         </div>
     );
 };

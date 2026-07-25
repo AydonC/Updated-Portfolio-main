@@ -1,11 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Feed from "../components/Feed";
 import About from "../components/About";
 import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials ";
 import Spinner from "../components/Spinner"; // Import the Spinner component
 import Banner from "../components/Banner";
+import TypewriterText from "../components/TypewriterText";
+
+const TABS = ["Feed", "About", "Projects", "Testimonials"];
 
 
 const ProfilePage = () => {
@@ -34,15 +38,15 @@ const ProfilePage = () => {
     const renderContent = () => {
         switch (activeTab) {
             case 'Feed':
-                return <div><Feed /></div>;
+                return <Feed />;
             case 'About':
-                return <div><About /></div>;
+                return <About />;
             case 'Projects':
-                return <div><Projects /> </div>;
+                return <Projects />;
             case 'Testimonials':
-                return <div><Testimonials /></div>;
+                return <Testimonials />;
             default:
-                return <div><Feed /></div>;
+                return <Feed />;
         }
     };
 
@@ -54,19 +58,12 @@ const ProfilePage = () => {
                 alt="Background Logo"
                 className="fixed top-[65%] right-0 w-[600px] opacity-20 -translate-y-1/2 z-0 pointer-events-none select-none"
             />
-            <div className="relative sm:fixed top-4 left-4 z-50 flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
+            <div className="relative sm:fixed top-4 left-4 z-50 flex items-center">
                 <img
                     src="/logoMain.png"
                     alt="Logo"
                     className="w-16 h-16 sm:w-24 sm:h-24 object-contain"
                 />
-                <a
-                    href="/AydonCV.pdf"
-                    download
-                    className="text-white hover:underline font-medium text-sm sm:text-base"
-                >
-                    Download CV
-                </a>
             </div>
 
 
@@ -84,7 +81,7 @@ const ProfilePage = () => {
 
                     {/* Profile Picture */}
                     <div className="absolute -bottom-24 left-1 transform translate-x-1/3 z-40">
-                        <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-white-900 bg-gray-300 ">
+                        <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-white bg-gray-300 ">
                             <img
                                 src="/aydon.jpg"
                                 alt="Profile"
@@ -97,10 +94,22 @@ const ProfilePage = () => {
                 {/* Profile Info */}
                 <div className="mt-20 text-left " >
                     <div className="flex justify-left items-center mb-2 ml-14 ">
-                        <h1 className="text-3xl font-bold mr-2">Aydon Cupido</h1>
-                        <div className="bg-purple-600 rounded-full w-6 h-6 flex items-center justify-center">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="mr-2 bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-3xl font-bold text-transparent"
+                        >
+                            Aydon Cupido
+                        </motion.h1>
+                        <motion.div
+                            initial={{ scale: 0, rotate: -90 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={{ type: "spring", stiffness: 500, damping: 18, delay: 0.3 }}
+                            className="bg-purple-600 rounded-full w-6 h-6 flex items-center justify-center shadow-lg shadow-purple-500/40"
+                        >
                             <span className="text-xs">✓</span>
-                        </div>
+                        </motion.div>
                     </div>
                     <div className="text-gray-500 font-semibold mb-2 flex items-center ml-14">
                         @aydonC
@@ -109,9 +118,16 @@ const ProfilePage = () => {
 
                     </div>
                     <p className="text-lg mb-1 ml-14">Dream in logic, build with code, and turn ideas into reality.🚀</p>
-                    <p className="text-gray-300 mb-4 ml-14">
-
-                        Full Stack Engineer. Innovative Developer.
+                    <p className="text-gray-300 mb-4 ml-14 h-7">
+                        <TypewriterText
+                            words={[
+                                "Full Stack Engineer 💻",
+                                "Innovative Developer 🚀",
+                                "Problem Solver 🧩",
+                                "React & C# Specialist ⚛️",
+                            ]}
+                            className="text-purple-300 font-semibold"
+                        />
                     </p>
 
                     {/* Stats */}
@@ -120,7 +136,13 @@ const ProfilePage = () => {
                             <span className="mr-1">🌐</span>
                             <span>Available</span>
                         </div>
-                        <div className="flex items-center cursor-grab" onClick={toggleModal}>
+                        <div
+                            className="flex items-center cursor-pointer hover:text-purple-400 transition-colors"
+                            onClick={toggleModal}
+                            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleModal()}
+                            role="button"
+                            tabIndex={0}
+                        >
                             <span className="mr-1">🔗</span>
                             <span className="text-purple-500">/links</span>
                         </div>
@@ -136,44 +158,62 @@ const ProfilePage = () => {
 
 
                     {/* Navigation */}
-                    <div className="flex justify-center border-b border-gray-700 flex-wrap">
-                        <button
-                            onClick={() => handleTabClick('Feed')}
-                            className={`px-6 py-2 font-medium hover:bg-gray-800 ${activeTab === 'Feed' ? 'border-b-2 border-purple-600 text-white' : 'text-gray-400'} sm:text-sm md:text-base lg:text-lg`}
-                        >
-                            Feed
-                        </button>
-                        <button
-                            onClick={() => handleTabClick('About')}
-                            className={`px-6 py-2 font-medium hover:bg-gray-800 ${activeTab === 'About' ? 'border-b-2 border-purple-600 text-white' : 'text-gray-400'} sm:text-sm md:text-base lg:text-lg`}
-                        >
-                            About
-                        </button>
-                        <button
-                            onClick={() => handleTabClick('Projects')}
-                            className={`px-6 py-2 font-medium hover:bg-gray-800 ${activeTab === 'Projects' ? 'border-b-2 border-purple-600 text-white' : 'text-gray-400'} sm:text-sm md:text-base lg:text-lg`}
-                        >
-                            Projects
-                        </button>
-                        <button
-                            onClick={() => handleTabClick('Testimonials')}
-                            className={`px-6 py-2 font-medium hover:bg-gray-800 ${activeTab === 'Testimonials' ? 'border-b-2 border-purple-600 text-white' : 'text-gray-400'} sm:text-sm md:text-base lg:text-lg`}
-                        >
-                            Testimonials
-                        </button>
+                    <div className="sticky top-0 z-30 flex justify-center border-b border-gray-700 flex-wrap bg-gray-950/80 backdrop-blur">
+                        {TABS.map((tab) => (
+                            <motion.button
+                                key={tab}
+                                onClick={() => handleTabClick(tab)}
+                                whileTap={{ scale: 0.92 }}
+                                className={`relative px-6 py-2 font-medium transition-colors hover:text-white sm:text-sm md:text-base lg:text-lg ${
+                                    activeTab === tab ? 'text-white' : 'text-gray-400'
+                                }`}
+                            >
+                                {tab}
+                                {activeTab === tab && (
+                                    <motion.span
+                                        layoutId="tab-underline"
+                                        className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-purple-500"
+                                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                                    />
+                                )}
+                            </motion.button>
+                        ))}
                     </div>
 
 
-                    {/* Content */}
+                    {/* Content — keyed remount plays the enter animation on each
+                        tab change. (AnimatePresence mode="wait" deadlocks here, so
+                        we rely on the key change instead.) */}
                     <div className="mt-4">
-                        {renderContent()}
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.25, ease: "easeOut" }}
+                        >
+                            {renderContent()}
+                        </motion.div>
                     </div>
 
 
-                    {/* Modal */}
+                    {/* Modal — conditional render with an enter animation. We avoid
+                        AnimatePresence exit here because framer-motion's exit
+                        animations deadlock under React 19 StrictMode in this project. */}
                     {isModalOpen && (
-                        <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center">
-                            <div className="bg-[#1c1c1e] p-6 rounded-2xl shadow-lg w-96 text-center border border-purple-300">
+                        <motion.div
+                            className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.2 }}
+                            onClick={toggleModal}
+                        >
+                            <motion.div
+                                className="bg-[#1c1c1e] p-6 rounded-2xl shadow-lg w-96 text-center border border-purple-300"
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                transition={{ type: "spring", stiffness: 320, damping: 26 }}
+                                onClick={(e) => e.stopPropagation()}
+                            >
                                 <h2 className="text-2xl text-gray-300 font-semibold mb-4">Click To View</h2>
                                 <ul className="space-y-3">
                                     <li>
@@ -203,15 +243,14 @@ const ProfilePage = () => {
                                     onClick={toggleModal}>
                                     Close
                                 </button>
-                            </div>
-                        </div>
-
+                            </motion.div>
+                        </motion.div>
                     )}
 
                 </div>
             </div>
             <footer className="bg-gray-900 text-gray-400 py-2 text-center mt-8">
-                <p>&copy; {new Date().getFullYear()} Aydon Cupido. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} InnovAyd. All rights reserved.</p>
             </footer>
         </div>
     );

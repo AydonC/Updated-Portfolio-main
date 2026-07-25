@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { listContainer, listItem } from '../lib/motion';
 
 const postsData = [
     {
@@ -65,7 +67,13 @@ const postsData = [
 
 const Projects = () => {
     return (
-        <div className="max-w-2xl mx-auto p-4 ">
+        <motion.div
+            className="max-w-2xl mx-auto p-4 "
+            variants={listContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-40px' }}
+        >
             {/* Pinned Post Label above the first post */}
             <div className="text-gray-500 font-semibold mb-4 flex items-center">
                 <i className="fas fa-thumbtack mr-2"></i> &nbsp; Pinned Project
@@ -73,7 +81,7 @@ const Projects = () => {
 
             {/* First Post (Post with id 1) */}
             {postsData.slice(0, 1).map(post => (
-                <div key={post.id} className="bg-gray-950 p-4 rounded-lg shadow-md mb-4 hover:bg-gray-800">
+                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} className="bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60">
                     <div className="flex items-center mb-2">
                         <img
                             src={post.profileImage}
@@ -105,8 +113,15 @@ const Projects = () => {
                         </div>
                     )}
 
-                    <div className="text-gray-500 font-semibold mb-4 flex items-center">
-                        {post.tools}
+                    <div className="mb-4 flex flex-wrap gap-2">
+                        {post.tools.split(',').map((tool) => (
+                            <span
+                                key={tool}
+                                className="rounded-full bg-purple-600/15 px-3 py-1 text-xs font-medium text-purple-300 ring-1 ring-purple-500/30"
+                            >
+                                {tool.trim()}
+                            </span>
+                        ))}
                     </div>
 
                     {/* GitHub Link */}
@@ -120,15 +135,12 @@ const Projects = () => {
                             🔗 View on GitHub
                         </a>
                     </div>
-                </div>
+                </motion.div>
             ))}
 
             {/* Regular Posts */}
             {postsData.slice(1).map(post => (
-                <div key={post.id} className="bg-gray-950 p-4 rounded-lg shadow-md mb-4 hover:bg-gray-800">
-                    <div className="text-gray-500 font-semibold mb-4 flex items-center">
-                        <i className="fas fa-thumbtack mr-2"></i> &nbsp; Pinned Project
-                    </div>
+                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} className="bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60">
                     <div className="flex items-center mb-2">
                         {/* Profile image */}
                         <img
@@ -161,8 +173,15 @@ const Projects = () => {
                             </video>
                         </div>
                     )}
-                    <div className="text-gray-500 font-semibold mb-4 flex items-center">
-                        {post.tools}
+                    <div className="mb-4 flex flex-wrap gap-2">
+                        {post.tools.split(',').map((tool) => (
+                            <span
+                                key={tool}
+                                className="rounded-full bg-purple-600/15 px-3 py-1 text-xs font-medium text-purple-300 ring-1 ring-purple-500/30"
+                            >
+                                {tool.trim()}
+                            </span>
+                        ))}
                     </div>
 
                     {/* GitHub Link */}
@@ -176,11 +195,10 @@ const Projects = () => {
                             🔗 View on GitHub
                         </a>
                     </div>
-                </div>
-                
+                </motion.div>
             ))}
-             <div className="mb-2 text-1xl">
-                <strong>To view my other projects, i recommend checking out my github!</strong> <br />
+             <div className="mb-2 text-base">
+                <strong>To view my other projects, I recommend checking out my GitHub!</strong> <br />
                 <label
                     className="text-blue-500 hover:underline cursor-pointer"
                     onClick={() => window.open("https://github.com/AydonC", "_blank")}
@@ -189,7 +207,7 @@ const Projects = () => {
                 </label>
 
             </div>
-        </div>
+        </motion.div>
     );
 };
 

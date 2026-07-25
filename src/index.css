@@ -8,9 +8,23 @@
       opacity: 1;
     }
   }
-  
+
   .animate-fadeIn {
     animation: fadeIn 2s ease-in-out;
   }
-  
+
+/* Accessibility: honour the OS "reduce motion" setting for CSS-driven
+   animations (Tailwind's animate-ping / animate-pulse / animate-spin and the
+   fadeIn keyframes above). Framer-motion animations are handled separately by
+   <MotionConfig reducedMotion="user"> in main.jsx. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 

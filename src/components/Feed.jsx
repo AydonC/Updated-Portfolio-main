@@ -1,5 +1,7 @@
 // src/components/TwitterFeed.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
+import { listContainer, listItem } from '../lib/motion';
 
 // Example posts data (easy to modify in code)
 const postsData = [
@@ -43,7 +45,13 @@ const postsData = [
 
 const Feed = () => {
     return (
-        <div className="max-w-2xl mx-auto p-4 ">
+        <motion.div
+            className="max-w-2xl mx-auto p-4 "
+            variants={listContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-40px' }}
+        >
 
             {/* Pinned Post Label above the first post */}
             <div className="text-gray-500 font-semibold mb-4 flex items-center">
@@ -52,7 +60,7 @@ const Feed = () => {
 
             {/* First Post (Post with id 1) */}
             {postsData.slice(0, 1).map(post => (
-                <div key={post.id} className="bg-gray-950 p-4 rounded-lg shadow-md mb-4 hover:bg-gray-800 ">
+                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} className="bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60 ">
                     <div className="flex items-center mb-2">
                         <img
                             src={post.profileImage}
@@ -81,12 +89,12 @@ const Feed = () => {
                             </video>
                         </div>
                     )}
-                </div>
+                </motion.div>
             ))}
 
             {/* Regular Posts */}
             {postsData.slice(1).map(post => (
-                <div key={post.id} className="bg-gray-950 p-4 rounded-lg shadow-md mb-4 hover:bg-gray-800">
+                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} className="bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60">
                     <div className="flex items-center mb-2">
                         {/* Profile image */}
                         <img
@@ -116,9 +124,9 @@ const Feed = () => {
                             </video>
                         </div>
                     )}
-                </div>
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     );
 };
 
