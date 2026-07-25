@@ -62,7 +62,10 @@ const ProfilePage = () => {
             {/* Background Logo */}
             <img
                 src="/logoMain.png"
-                alt="Background Logo"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
                 className="fixed top-[65%] right-0 w-[600px] opacity-20 -translate-y-1/2 z-0 pointer-events-none select-none"
             />
             {isLoading && <Spinner />}
@@ -81,6 +84,7 @@ const ProfilePage = () => {
                             <img
                                 src="/aydon.jpg"
                                 alt="Profile"
+                                fetchPriority="high"
                                 className="w-full h-full object-cover"
                             />
                         </div>

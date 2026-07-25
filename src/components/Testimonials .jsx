@@ -82,13 +82,13 @@ const Testimonials = () => {
 
                     {post.image && (
                         <div className="mb-2">
-                            <img src={post.image} alt="Post Media" className="w-full rounded-lg" />
+                            <img src={post.image} alt="Post Media" loading="lazy" decoding="async" className="w-full rounded-lg" />
                         </div>
                     )}
 
                     {post.video && (
                         <div className="mb-2">
-                            <video controls className="w-full rounded-lg">
+                            <video controls preload="none" className="w-full rounded-lg">
                                 <source src={post.video} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
@@ -117,13 +117,13 @@ const Testimonials = () => {
                     {/* Conditional rendering for image or video */}
                     {post.image && (
                         <div className="mb-2">
-                            <img src={post.image} alt="Post Media" className="w-full rounded-lg" />
+                            <img src={post.image} alt="Post Media" loading="lazy" decoding="async" className="w-full rounded-lg" />
                         </div>
                     )}
 
                     {post.video && (
                         <div className="mb-2">
-                            <video controls className="w-full rounded-lg">
+                            <video controls preload="none" className="w-full rounded-lg">
                                 <source src={post.video} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
