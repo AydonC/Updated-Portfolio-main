@@ -156,27 +156,29 @@ const ProfilePage = () => {
                     </div>
 
 
-                    {/* Navigation */}
-                    <div className="sticky top-0 z-30 flex justify-center border-b border-gray-700 flex-wrap bg-gray-950/80 backdrop-blur">
-                        {TABS.map((tab) => (
-                            <motion.button
-                                key={tab}
-                                onClick={() => handleTabClick(tab)}
-                                whileTap={{ scale: 0.92 }}
-                                className={`relative px-6 py-2 font-medium transition-colors hover:text-white sm:text-sm md:text-base lg:text-lg ${
-                                    activeTab === tab ? 'text-white' : 'text-gray-400'
-                                }`}
-                            >
-                                {tab}
-                                {activeTab === tab && (
-                                    <motion.span
-                                        layoutId="tab-underline"
-                                        className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-purple-500"
-                                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                                    />
-                                )}
-                            </motion.button>
-                        ))}
+                    {/* Navigation — segmented pill control with a sliding active pill */}
+                    <div className="sticky top-3 z-30 mb-2 flex justify-center">
+                        <div className="flex items-center gap-1 rounded-full border border-gray-800 bg-gray-900/70 p-1 shadow-lg shadow-black/30 backdrop-blur">
+                            {TABS.map((tab) => (
+                                <motion.button
+                                    key={tab}
+                                    onClick={() => handleTabClick(tab)}
+                                    whileTap={{ scale: 0.94 }}
+                                    className={`relative rounded-full px-3 py-1.5 text-sm font-medium transition-colors sm:px-5 sm:text-base ${
+                                        activeTab === tab ? 'text-white' : 'text-gray-400 hover:text-gray-200'
+                                    }`}
+                                >
+                                    {activeTab === tab && (
+                                        <motion.span
+                                            layoutId="tab-pill"
+                                            className="absolute inset-0 rounded-full bg-purple-600 shadow-md shadow-purple-600/40"
+                                            transition={{ type: 'spring', stiffness: 500, damping: 32 }}
+                                        />
+                                    )}
+                                    <span className="relative z-10">{tab}</span>
+                                </motion.button>
+                            ))}
+                        </div>
                     </div>
 
 
