@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { LuArrowLeft, LuBriefcase, LuCheck, LuArrowUpRight } from "react-icons/lu";
 import AuroraBackground from "../components/AuroraBackground";
+import { handleSpotlight } from "../lib/motion";
 
 // ---------------------------------------------------------------------------
 // Client case studies.
@@ -78,7 +80,8 @@ const CaseStudyCard = ({ study, index }) => (
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.5, delay: index * 0.05 }}
         whileHover={{ y: -6 }}
-        className="overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/60 shadow-lg backdrop-blur-sm transition-colors hover:border-purple-500/60 hover:shadow-purple-900/30"
+        onMouseMove={handleSpotlight}
+        className="spotlight-card relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-900/60 shadow-lg backdrop-blur-sm transition-colors hover:border-purple-500/60 hover:shadow-purple-900/30"
     >
         <div className="grid gap-0 md:grid-cols-2">
             {/* Media */}
@@ -91,8 +94,8 @@ const CaseStudyCard = ({ study, index }) => (
                         loading="lazy"
                     />
                 ) : (
-                    <div className="flex h-full w-full items-center justify-center text-6xl opacity-30">
-                        💼
+                    <div className="flex h-full w-full items-center justify-center opacity-20">
+                        <LuBriefcase className="h-20 w-20" />
                     </div>
                 )}
                 <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-purple-300 ring-1 ring-purple-400/30">
@@ -122,7 +125,7 @@ const CaseStudyCard = ({ study, index }) => (
                         <ul className="mt-1 space-y-1 text-gray-400">
                             {study.results.map((result) => (
                                 <li key={result} className="flex items-start">
-                                    <span className="mr-2 text-purple-400">✓</span>
+                                    <LuCheck className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-purple-400" strokeWidth={3} />
                                     <span>{result}</span>
                                 </li>
                             ))}
@@ -132,9 +135,9 @@ const CaseStudyCard = ({ study, index }) => (
 
                 {/* Tools */}
                 <div className="mt-5 flex flex-wrap gap-2">
-                    {study.tools.map((tool) => (
+                    {study.tools.map((tool, i) => (
                         <span
-                            key={tool}
+                            key={`${study.id}-${i}`}
                             className="rounded-full bg-purple-600/15 px-3 py-1 text-xs font-medium text-purple-300 ring-1 ring-purple-500/30"
                         >
                             {tool}
@@ -147,9 +150,10 @@ const CaseStudyCard = ({ study, index }) => (
                         href={study.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-6 inline-flex items-center font-semibold text-purple-400 hover:text-purple-300 hover:underline"
+                        className="group/link mt-6 inline-flex items-center gap-1 font-semibold text-purple-400 hover:text-purple-300 hover:underline"
                     >
-                        View project 🔗
+                        View project
+                        <LuArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                     </a>
                 )}
             </div>
@@ -179,9 +183,9 @@ const CaseStudies = () => {
                     </a>
                     <a
                         href="#/"
-                        className="rounded-full border border-gray-700 px-4 py-1.5 text-sm font-medium text-gray-300 transition-colors hover:border-purple-500 hover:text-white"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-gray-700 px-4 py-1.5 text-sm font-medium text-gray-300 transition-colors hover:border-purple-500 hover:text-white"
                     >
-                        ← Profile
+                        <LuArrowLeft className="h-4 w-4" /> Profile
                     </a>
                 </div>
             </header>

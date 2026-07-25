@@ -4,6 +4,7 @@ import CaseStudies from './pages/CaseStudies';
 import CaseStudiesButton from './components/CaseStudiesButton';
 import DownloadCVButton from './components/DownloadCVButton';
 import ScrollProgress from './components/ScrollProgress';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 const getRoute = () => window.location.hash.replace(/^#/, '') || '/';
@@ -25,6 +26,7 @@ function App() {
       {isCaseStudies ? <CaseStudies /> : <ProfilePage />}
       <DownloadCVButton />
       <CaseStudiesButton active={isCaseStudies} />
+      <ScrollToTop />
     </div>
   );
 }

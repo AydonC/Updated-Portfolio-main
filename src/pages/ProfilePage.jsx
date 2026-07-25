@@ -9,6 +9,10 @@ import Spinner from "../components/Spinner"; // Import the Spinner component
 import Banner from "../components/Banner";
 import TypewriterText from "../components/TypewriterText";
 import AuroraBackground from "../components/AuroraBackground";
+import LocalTime from "../components/LocalTime";
+import { LuCheck, LuLink2, LuCake, LuCalendarDays, LuMail } from "react-icons/lu";
+import { SiGithub } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa6";
 
 const TABS = ["Feed", "About", "Projects", "Testimonials"];
 
@@ -61,17 +65,6 @@ const ProfilePage = () => {
                 alt="Background Logo"
                 className="fixed top-[65%] right-0 w-[600px] opacity-20 -translate-y-1/2 z-0 pointer-events-none select-none"
             />
-            <div className="relative sm:fixed top-4 left-4 z-50 flex items-center">
-                <img
-                    src="/logoMain.png"
-                    alt="Logo"
-                    className="w-16 h-16 sm:w-24 sm:h-24 object-contain"
-                />
-            </div>
-
-
-
-
             {isLoading && <Spinner />}
             <div className="max-w-3xl mx-auto px-4 pt-8 pb-16">
                 {/* Banner */}
@@ -111,7 +104,7 @@ const ProfilePage = () => {
                             transition={{ type: "spring", stiffness: 500, damping: 18, delay: 0.3 }}
                             className="bg-purple-600 rounded-full w-6 h-6 flex items-center justify-center shadow-lg shadow-purple-500/40"
                         >
-                            <span className="text-xs">✓</span>
+                            <LuCheck className="h-3.5 w-3.5 text-white" strokeWidth={3.5} />
                         </motion.div>
                     </div>
                     <div className="text-gray-500 font-semibold mb-2 flex items-center ml-14">
@@ -134,29 +127,32 @@ const ProfilePage = () => {
                     </p>
 
                     {/* Stats */}
-                    <div className="flex flex-wrap justify-start gap-4 text-lg text-gray-400 mb-8 ml-14">
-                        <div className="flex items-center">
-                            <span className="mr-1">🌐</span>
-                            <span>Available</span>
-                        </div>
-                        <div
-                            className="flex items-center cursor-pointer hover:text-purple-400 transition-colors"
+                    <div className="flex flex-wrap items-center justify-start gap-x-5 gap-y-2 text-base text-gray-400 mb-8 ml-14">
+                        {/* Available-for-work status with a live pulsing dot */}
+                        <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-sm font-medium text-green-300">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
+                            </span>
+                            Available for work
+                        </span>
+                        <button
+                            type="button"
+                            className="flex items-center transition-colors hover:text-purple-400 focus:outline-none focus:text-purple-400"
                             onClick={toggleModal}
-                            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleModal()}
-                            role="button"
-                            tabIndex={0}
                         >
-                            <span className="mr-1">🔗</span>
-                            <span className="text-purple-500">/links</span>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="mr-1">📅</span>
-                            <span>August 18th</span>
-                        </div>
-                        <div className="flex items-center">
-                            <span className="mr-1">📂</span>
-                            <span>Joined March 2025</span>
-                        </div>
+                            <LuLink2 className="mr-1.5 h-4 w-4 text-purple-400" />
+                            <span className="text-purple-400">/links</span>
+                        </button>
+                        <span className="flex items-center">
+                            <LuCake className="mr-1.5 h-4 w-4 text-purple-400" />
+                            August 18th
+                        </span>
+                        <span className="flex items-center">
+                            <LuCalendarDays className="mr-1.5 h-4 w-4 text-purple-400" />
+                            Joined March 2025
+                        </span>
+                        <LocalTime />
                     </div>
 
 
@@ -221,23 +217,23 @@ const ProfilePage = () => {
                                 <ul className="space-y-3">
                                     <li>
                                         <a href="https://github.com/AydonC"
-                                            className="text-lg text-purple-600 font-bold hover:underline hover:text-purple-300 transition"
+                                            className="flex items-center justify-center gap-2 text-lg text-purple-400 font-bold hover:underline hover:text-purple-300 transition"
                                             target="_blank" rel="noopener noreferrer">
-                                            My GitHub
+                                            <SiGithub className="h-5 w-5" /> My GitHub
                                         </a>
                                     </li>
                                     <li>
                                         <a href="https://www.linkedin.com/in/aydon-jon-cupido-22b513286/"
-                                            className="text-lg text-purple-600 font-bold hover:underline hover:text-purple-300 transition"
+                                            className="flex items-center justify-center gap-2 text-lg text-purple-400 font-bold hover:underline hover:text-purple-300 transition"
                                             target="_blank" rel="noopener noreferrer">
-                                            My LinkedIn
+                                            <FaLinkedin className="h-5 w-5" /> My LinkedIn
                                         </a>
                                     </li>
                                     <li>
                                         <a href="mailto:cupido.aydon@gmail.com"
-                                            className="text-lg text-purple-600 font-bold hover:underline hover:text-purple-300 transition"
+                                            className="flex items-center justify-center gap-2 text-lg text-purple-400 font-bold hover:underline hover:text-purple-300 transition"
                                             target="_blank" rel="noopener noreferrer">
-                                            Send Me An Email
+                                            <LuMail className="h-5 w-5" /> Send Me An Email
                                         </a>
                                     </li>
                                 </ul>

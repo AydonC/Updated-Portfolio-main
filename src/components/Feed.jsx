@@ -1,7 +1,8 @@
 // src/components/TwitterFeed.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { listContainer, listItem } from '../lib/motion';
+import { LuPin } from 'react-icons/lu';
+import { listContainer, listItem, handleSpotlight } from '../lib/motion';
 
 // Example posts data (easy to modify in code)
 const postsData = [
@@ -54,13 +55,13 @@ const Feed = () => {
         >
 
             {/* Pinned Post Label above the first post */}
-            <div className="text-gray-500 font-semibold mb-4 flex items-center">
-                <i className="fas fa-thumbtack mr-2"></i> &nbsp; Pinned Post 📌
+            <div className="text-gray-500 font-semibold mb-4 flex items-center gap-2">
+                <LuPin className="h-4 w-4 -rotate-45" /> Pinned Post
             </div>
 
             {/* First Post (Post with id 1) */}
             {postsData.slice(0, 1).map(post => (
-                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} className="bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60 ">
+                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} onMouseMove={handleSpotlight} className="spotlight-card relative overflow-hidden bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60 ">
                     <div className="flex items-center mb-2">
                         <img
                             src={post.profileImage}
@@ -94,7 +95,7 @@ const Feed = () => {
 
             {/* Regular Posts */}
             {postsData.slice(1).map(post => (
-                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} className="bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60">
+                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} onMouseMove={handleSpotlight} className="spotlight-card relative overflow-hidden bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60">
                     <div className="flex items-center mb-2">
                         {/* Profile image */}
                         <img

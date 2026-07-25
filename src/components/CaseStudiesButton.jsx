@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { LuArrowLeft, LuBriefcase } from "react-icons/lu";
 
 // Floating action button that expands on hover.
 // On the profile it invites users to the Case Studies page;
@@ -7,7 +8,7 @@ import { motion } from "framer-motion";
 const CaseStudiesButton = ({ active }) => {
     const target = active ? "#/" : "#/case-studies";
     const label = active ? "Back to Profile" : "View Case Studies";
-    const icon = active ? "←" : "💼";
+    const Icon = active ? LuArrowLeft : LuBriefcase;
 
     const handleClick = () => {
         window.location.hash = target;
@@ -30,7 +31,7 @@ const CaseStudiesButton = ({ active }) => {
                 <span className="absolute inset-0 -z-10 rounded-full bg-purple-500 opacity-60 blur-[2px] motion-safe:animate-ping" />
             )}
 
-            <span className="text-xl leading-none">{icon}</span>
+            <Icon className="h-5 w-5 shrink-0" />
             <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-all duration-300 ease-out group-hover:ml-2 group-hover:max-w-[180px] group-hover:opacity-100">
                 {label}
             </span>

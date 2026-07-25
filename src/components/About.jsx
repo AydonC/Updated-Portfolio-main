@@ -1,5 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import {
+    SiReact, SiJavascript, SiHtml5, SiSharp, SiDotnet,
+    SiPostgresql, SiFirebase, SiFigma, SiGithub,
+} from "react-icons/si";
+import {
+    LuRocket, LuCompass, LuLayers, LuHandshake, LuGraduationCap,
+    LuDatabase, LuCloud, LuCheck, LuBadgeCheck,
+} from "react-icons/lu";
+import { handleSpotlight } from "../lib/motion";
 
 const current = {
     role: "Junior Software Engineer",
@@ -39,10 +48,37 @@ const experience = [
 ];
 
 const techStack = [
-    { group: "Frontend", items: ["⚛️ React.js", "🟨 JavaScript", "🎨 HTML & CSS"] },
-    { group: "Backend", items: ["🖥️ C#", "🌐 .NET Web API"] },
-    { group: "Databases", items: ["🗃️ SQL Server", "🐘 PostgreSQL"] },
-    { group: "Tools & Design", items: ["🐙 GitHub", "☁️ Azure", "🔥 Firebase", "✏️ Figma"] },
+    {
+        group: "Frontend",
+        items: [
+            { icon: SiReact, label: "React.js", color: "#61DAFB" },
+            { icon: SiJavascript, label: "JavaScript", color: "#F7DF1E" },
+            { icon: SiHtml5, label: "HTML & CSS", color: "#E34F26" },
+        ],
+    },
+    {
+        group: "Backend",
+        items: [
+            { icon: SiSharp, label: "C#", color: "#9B5FB0" },
+            { icon: SiDotnet, label: ".NET Web API", color: "#512BD4" },
+        ],
+    },
+    {
+        group: "Databases",
+        items: [
+            { icon: LuDatabase, label: "SQL Server", color: "#CC2927" },
+            { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
+        ],
+    },
+    {
+        group: "Tools & Design",
+        items: [
+            { icon: SiGithub, label: "GitHub", color: "#e5e5e5" },
+            { icon: LuCloud, label: "Azure", color: "#3AA0E3" },
+            { icon: SiFirebase, label: "Firebase", color: "#FFCA28" },
+            { icon: SiFigma, label: "Figma", color: "#F24E1E" },
+        ],
+    },
 ];
 
 const canBring = [
@@ -69,16 +105,20 @@ const fadeUp = {
     transition: { duration: 0.4 },
 };
 
-const Section = ({ title, children }) => (
+const Section = ({ title, icon: Icon, children }) => (
     <motion.section {...fadeUp} className="mt-8">
-        <h2 className="text-2xl font-semibold text-white">{title}</h2>
+        <h2 className="flex items-center gap-2 text-2xl font-semibold text-white">
+            {Icon && <Icon className="h-6 w-6 text-purple-400" />}
+            {title}
+        </h2>
         <div className="mt-3">{children}</div>
     </motion.section>
 );
 
 const RoleCard = ({ role, company, location, period, points, highlight }) => (
     <div
-        className={`rounded-2xl border p-5 ${
+        onMouseMove={handleSpotlight}
+        className={`spotlight-card relative overflow-hidden rounded-2xl border p-5 ${
             highlight
                 ? "border-purple-500/50 bg-purple-600/10"
                 : "border-gray-800 bg-gray-900/40"
@@ -136,12 +176,12 @@ const About = () => {
             </motion.div>
 
             {/* Currently doing */}
-            <Section title="What I'm Currently Doing 🚀">
+            <Section title="What I'm Currently Doing" icon={LuRocket}>
                 <RoleCard {...current} highlight />
             </Section>
 
             {/* Experience */}
-            <Section title="My Journey 🧭">
+            <Section title="My Journey" icon={LuCompass}>
                 <div className="space-y-4">
                     {experience.map((job) => (
                         <RoleCard key={job.company} {...job} />
@@ -150,7 +190,7 @@ const About = () => {
             </Section>
 
             {/* Tech Stack */}
-            <Section title="My Tech Stack 🌍">
+            <Section title="My Tech Stack" icon={LuLayers}>
                 <div className="space-y-4">
                     {techStack.map((cat) => (
                         <div key={cat.group}>
@@ -158,12 +198,13 @@ const About = () => {
                                 {cat.group}
                             </p>
                             <div className="flex flex-wrap gap-2">
-                                {cat.items.map((item) => (
+                                {cat.items.map(({ icon: Icon, label, color }) => (
                                     <span
-                                        key={item}
-                                        className="rounded-full bg-purple-600/15 px-3 py-1.5 text-sm font-medium text-purple-200 ring-1 ring-purple-500/30 transition-colors hover:bg-purple-600/25"
+                                        key={label}
+                                        className="inline-flex items-center gap-2 rounded-full bg-gray-900/60 px-3 py-1.5 text-sm font-medium text-gray-200 ring-1 ring-gray-700 transition-colors hover:ring-purple-500/50"
                                     >
-                                        {item}
+                                        <Icon className="h-4 w-4" style={{ color }} />
+                                        {label}
                                     </span>
                                 ))}
                             </div>
@@ -173,14 +214,14 @@ const About = () => {
             </Section>
 
             {/* What I can bring */}
-            <Section title="What I Can Bring 🤝">
+            <Section title="What I Can Bring" icon={LuHandshake}>
                 <ul className="grid gap-3 sm:grid-cols-2">
                     {canBring.map((item) => (
                         <li
                             key={item}
                             className="flex items-start rounded-xl border border-gray-800 bg-gray-900/40 p-3 text-gray-300"
                         >
-                            <span className="mr-2 text-purple-400">✓</span>
+                            <LuCheck className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-purple-400" strokeWidth={3} />
                             <span>{item}</span>
                         </li>
                     ))}
@@ -188,11 +229,11 @@ const About = () => {
             </Section>
 
             {/* Education */}
-            <Section title="Education & Certifications 🎓">
+            <Section title="Education & Certifications" icon={LuGraduationCap}>
                 <ul className="space-y-2">
                     {education.map((q) => (
                         <li key={q} className="flex items-start text-gray-300">
-                            <span className="mr-2">📜</span>
+                            <LuBadgeCheck className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-purple-400" />
                             <span>{q}</span>
                         </li>
                     ))}

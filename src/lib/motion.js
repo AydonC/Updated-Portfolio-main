@@ -44,3 +44,12 @@ export const tabSwap = {
     exit: { opacity: 0, y: -8 },
     transition: { duration: 0.22, ease: "easeOut" },
 };
+
+// Cursor-follow spotlight for `.spotlight-card` elements. Reads e.currentTarget
+// so no ref is needed — just spread onMouseMove={handleSpotlight} onto the card
+// and give it the "spotlight-card relative" classes.
+export const handleSpotlight = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty("--my", `${e.clientY - rect.top}px`);
+};

@@ -26,6 +26,31 @@ h1, h2, h3, h4, h5 {
   font-feature-settings: 'liga' 0;
 }
 
+/* --- Spotlight cards --------------------------------------------------------
+   A soft purple glow follows the cursor across the card. The --mx/--my CSS
+   variables are updated on mousemove (see handleSpotlight in lib/motion.js). */
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(168, 85, 247, 0.18),
+    transparent 42%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spotlight-card::before { transition: none; }
+}
+
 /* src/styles.css or in your global styles file */
 @keyframes fadeIn {
     0% {
