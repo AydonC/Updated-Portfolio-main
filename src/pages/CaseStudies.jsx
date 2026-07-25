@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import AuroraBackground from "../components/AuroraBackground";
 
 // ---------------------------------------------------------------------------
 // Client case studies.
@@ -159,6 +160,8 @@ const CaseStudyCard = ({ study, index }) => (
 const CaseStudies = () => {
     return (
         <div className="relative min-h-screen overflow-hidden bg-gray-950 text-white">
+            {/* Animated aurora background (21st.dev, recoloured) */}
+            <AuroraBackground />
             {/* Background Logo */}
             <img
                 src="/logoMain.png"

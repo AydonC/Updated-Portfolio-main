@@ -72,7 +72,7 @@ const Feed = () => {
                             <p className="text-sm text-gray-500">{post.username}</p>
                         </div>
                     </div>
-                    <h1 className="mb-1 text-2xl"><strong>Console.WriteLine("Hello World!") 🖥️👋</strong></h1>
+                    <h1 className="mb-1 text-2xl font-code"><strong>Console.WriteLine("Hello World!") 🖥️👋</strong></h1>
                     <p className="mb-2">{post.content}</p>
 
                     {post.image && (

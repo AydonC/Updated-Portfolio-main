@@ -8,6 +8,7 @@ import Testimonials from "../components/Testimonials ";
 import Spinner from "../components/Spinner"; // Import the Spinner component
 import Banner from "../components/Banner";
 import TypewriterText from "../components/TypewriterText";
+import AuroraBackground from "../components/AuroraBackground";
 
 const TABS = ["Feed", "About", "Projects", "Testimonials"];
 
@@ -52,6 +53,8 @@ const ProfilePage = () => {
 
     return (
         <div className="relative bg-gray-950 min-h-screen text-white z-20 overflow-hidden" >
+            {/* Animated aurora background (21st.dev, recoloured) */}
+            <AuroraBackground />
             {/* Background Logo */}
             <img
                 src="/logoMain.png"
@@ -126,7 +129,7 @@ const ProfilePage = () => {
                                 "Problem Solver 🧩",
                                 "React & C# Specialist ⚛️",
                             ]}
-                            className="text-purple-300 font-semibold"
+                            className="text-purple-300 font-semibold font-code"
                         />
                     </p>
 

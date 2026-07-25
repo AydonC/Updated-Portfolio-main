@@ -1,4 +1,31 @@
 
+/* --- Type system (ui-ux-pro-max "Tech Startup" pairing) ---------------------
+   Space Grotesk for headings (distinctive, techy), DM Sans for body
+   (highly readable), JetBrains Mono for code-flavoured accents. Loaded via
+   <link> in index.html. */
+:root {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading: 'Space Grotesk', var(--font-sans);
+  --font-code: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+}
+
+/* Opt-in monospace accent for code-flavoured text (typewriter, handles). */
+.font-code {
+  font-family: var(--font-code);
+  font-feature-settings: 'liga' 0;
+}
+
 /* src/styles.css or in your global styles file */
 @keyframes fadeIn {
     0% {
