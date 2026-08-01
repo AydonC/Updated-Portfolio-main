@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logoMain.png" />
+    <!-- Apply the saved accent theme before paint to avoid a flash of the default. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Type system (ui-ux-pro-max "Tech Startup" pairing): Space Grotesk headings,
          DM Sans body, JetBrains Mono for code-flavoured accents. -->
@@ -13,6 +22,31 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Remap Tailwind's `purple-*` accent scale to CSS variables so a single
+         [data-theme] on <html> recolours the whole site. The channels live in
+         index.css; see the [data-theme] blocks there. -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              purple: {
+                50: 'rgb(var(--accent-50) / <alpha-value>)',
+                100: 'rgb(var(--accent-100) / <alpha-value>)',
+                200: 'rgb(var(--accent-200) / <alpha-value>)',
+                300: 'rgb(var(--accent-300) / <alpha-value>)',
+                400: 'rgb(var(--accent-400) / <alpha-value>)',
+                500: 'rgb(var(--accent-500) / <alpha-value>)',
+                600: 'rgb(var(--accent-600) / <alpha-value>)',
+                700: 'rgb(var(--accent-700) / <alpha-value>)',
+                800: 'rgb(var(--accent-800) / <alpha-value>)',
+                900: 'rgb(var(--accent-900) / <alpha-value>)',
+              },
+            },
+          },
+        },
+      };
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InnovAyd</title>
   </head>

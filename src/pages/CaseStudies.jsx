@@ -176,7 +176,7 @@ const CaseStudies = () => {
 
             {/* Header */}
             <header className="sticky top-0 z-40 border-b border-gray-800 bg-gray-950/80 backdrop-blur">
-                <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+                <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 pr-16">
                     <a href="#/" className="flex items-center gap-2">
                         <img src="/logoMain.png" alt="InnovAyd logo" className="h-12 w-12 object-contain" />
                         <span className="text-lg font-bold">InnovAyd</span>

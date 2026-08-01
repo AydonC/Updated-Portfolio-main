@@ -24,7 +24,7 @@ const CaseStudiesButton = ({ active }) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.4 }}
             whileTap={{ scale: 0.9 }}
-            className="group fixed bottom-6 right-6 z-[70] flex h-14 items-center rounded-full bg-purple-600 pl-[18px] pr-[18px] text-white shadow-lg shadow-purple-900/40 ring-1 ring-purple-400/40 transition-all duration-300 ease-out hover:bg-purple-500 hover:pr-5 hover:shadow-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-300"
+            className="group relative flex h-14 items-center rounded-full bg-purple-600 pl-[18px] pr-[18px] text-white shadow-lg shadow-purple-900/40 ring-1 ring-purple-400/40 transition-all duration-300 ease-out hover:bg-purple-500 hover:pr-5 hover:shadow-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-300"
         >
             {/* Attention ring (only on the profile view) */}
             {!active && (

@@ -1,64 +1,52 @@
 import React from "react";
-import { motion } from "framer-motion";
 
-const shapes = [...Array(15)].map(() => ({
-  size: Math.random() * 40 + 20, // Random size (20px to 60px)
-  x: Math.random() * 100, // Anywhere on the screen
-  y: Math.random() * 100, // Anywhere on the screen
-  duration: Math.random() * 4 + 2, // Random animation duration (2s to 6s)
-  shapeType: Math.random() > 0.5 ? "circle" : "square", // Random shape
-}));
+// Static decorative dots — no animation. Positions are fixed so the banner is
+// cheap to paint (the previous version animated 15 shapes + the gradient on an
+// infinite loop, which hurt performance).
+const dots = [
+    { size: 46, top: "14%", left: "10%", opacity: 0.28, round: true },
+    { size: 22, top: "68%", left: "18%", opacity: 0.22, round: false },
+    { size: 30, top: "24%", left: "82%", opacity: 0.25, round: true },
+    { size: 16, top: "76%", left: "72%", opacity: 0.3, round: false },
+    { size: 38, top: "48%", left: "90%", opacity: 0.18, round: true },
+    { size: 20, top: "38%", left: "6%", opacity: 0.22, round: true },
+];
 
 const Banner = () => {
-  return (
-    <motion.div
-      className="relative w-full h-[250px] flex items-center justify-center overflow-hidden"
-      animate={{
-        background: [
-          "linear-gradient(45deg, #1e1b4b, #3b0764, #0f172a)",
-          "linear-gradient(45deg, #3b0764, #312e81, #1e1b4b)",
-          "linear-gradient(45deg, #312e81, #1e1b4b, #0f172a)",
-        ],
-        transition: { duration: 5, repeat: Infinity, repeatType: "mirror" },
-      }}
-    >
-      {/* Animated Profile Image */}
-      <motion.img
-        src="/wall3.png"
-        alt="Profile"
-        className="w-80 h-80 mt-12  z-[30]"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      />
+    return (
+        <div
+            className="relative flex h-[250px] w-full items-center justify-center overflow-hidden"
+            style={{
+                backgroundImage:
+                    "linear-gradient(120deg, rgb(var(--accent-700) / 0.85), #241b4b 55%, #0f172a)",
+            }}
+        >
+            {/* Profile / brand illustration */}
+            <img
+                src="/wall3.png"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                className="z-[30] mt-12 h-80 w-80 object-contain"
+            />
 
-      {/* Floating Animated Shapes */}
-      {shapes.map((shape, i) => (
-        <motion.div
-          key={i}
-          className={`absolute ${
-            shape.shapeType === "circle" ? "rounded-full" : "rounded-md"
-          } bg-purple-400 shadow-xl`}
-          style={{
-            width: shape.size,
-            height: shape.size,
-            top: `${shape.y}%`,
-            left: `${shape.x}%`,
-          }}
-          animate={{
-            x: [0, Math.random() * 20 - 10], // Slight horizontal movement
-            y: [0, Math.random() * 20 - 10], // Slight vertical movement
-            rotate: [0, 360], // Continuous rotation
-          }}
-          transition={{
-            duration: shape.duration,
-            repeat: Infinity,
-            repeatType: "mirror",
-          }}
-        />
-      ))}
-    </motion.div>
-  );
+            {/* Static decorative shapes */}
+            {dots.map((d, i) => (
+                <div
+                    key={i}
+                    className={`absolute ${d.round ? "rounded-full" : "rounded-md"} bg-purple-400`}
+                    style={{
+                        width: d.size,
+                        height: d.size,
+                        top: d.top,
+                        left: d.left,
+                        opacity: d.opacity,
+                    }}
+                />
+            ))}
+        </div>
+    );
 };
 
 export default Banner;
