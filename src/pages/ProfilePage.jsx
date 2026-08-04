@@ -154,7 +154,7 @@ const ProfilePage = () => {
                         </span>
                         <span className="flex items-center">
                             <LuCalendarDays className="mr-1.5 h-4 w-4 text-purple-400" />
-                            Joined March 2025
+                            Joined June 2024
                         </span>
                         <LocalTime />
                     </div>

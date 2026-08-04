@@ -6,6 +6,18 @@ import { listContainer, listItem, handleSpotlight } from '../lib/motion';
 
 const postsData = [
     {
+        id: 2,
+        heading: 'AvoLands Leave Management System',
+        user: 'Aydon Cupido',
+        username: '@aydonC',
+        profileImage: '/aydon.jpg',
+        content: '📝 A Leave Management System where a company can track and log all employee leave requests.',
+        tools: '⚛️ ReactJS ,🔥 supabase',
+        image: '/avo.png',
+        video: null,
+        githubLink: 'https://claude.ai/code/artifact/2bf68fdf-70ed-48a6-bb3a-5ad0fa3b6ef8',
+    },
+    {
         id: 1,
         heading: '🚀 InnovAyd Task Management System',
         user: 'Aydon Cupido',

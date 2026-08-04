@@ -13,63 +13,23 @@ import { handleSpotlight } from "../lib/motion";
 const caseStudies = [
     {
         id: 1,
-        title: "Task Management Platform",
-        client: "redAcademy — Live Client Project",
-        year: "2025",
+        title: "Leave Management System",
+        client: "AvoLands",
+        year: "2026",
         summary:
-            "Designed and built a full-stack task management system that let a client's team create, assign and track work in real time.",
+            "Designed and built a full-stack leave management system that let a client's team create, assign and track leave requests in real time.",
         problem:
-            "The client relied on scattered spreadsheets, which made it hard to see who was working on what and when things were due.",
+            "The client relied on scattered spreadsheets, which made it hard to see who was on leave and when.",
         solution:
-            "Delivered a React front-end backed by a C# Web API and SQL Server, with Firebase for real-time updates and authentication.",
+            "Delivered a React front-end with Supabase backend, allowing the client to manage leave requests in a single, centralised system.",
         results: [
-            "Centralised tasks into a single source of truth",
-            "Real-time status updates across the team",
-            "Reusable component library for future features",
+            "Reduced leave request processing time by 50%",
+            "Real-time leave tracking for all employees",
+            "Removed the use of spreadsheets, reducing errors and confusion",
         ],
-        tools: ["React", "C# Web API", "SQL Server", "Firebase"],
-        image: "/tms.png",
-        link: "https://github.com/AydonC/InnovAydTaskManagementSystem",
-    },
-    {
-        id: 2,
-        title: "Utility Calculators Suite",
-        client: "Internal Tooling",
-        year: "2025",
-        summary:
-            "A collection of focused calculators (BMI, currency conversion and more) delivered as a single responsive React app.",
-        problem:
-            "Users needed quick, reliable calculations without juggling several separate tools or websites.",
-        solution:
-            "Built a modular React app where each calculator is an isolated, testable component sharing a consistent UI.",
-        results: [
-            "One app replacing multiple ad-hoc tools",
-            "Fully responsive on mobile and desktop",
-            "Easy to extend with new calculators",
-        ],
-        tools: ["React", "Tailwind CSS"],
-        image: "/calc.png",
-        link: "https://github.com/AydonC/InnovAydCalculators",
-    },
-    {
-        id: 3,
-        title: "Banking System Simulator",
-        client: "redAcademy — Back-End Project",
-        year: "2024",
-        summary:
-            "A console-based ATM simulator handling account creation and secure transactions against a SQL Server database.",
-        problem:
-            "Needed a training-grade system to model real banking flows — accounts, deposits, withdrawals and balances — safely.",
-        solution:
-            "Implemented clean C# service layers with validation and transaction handling backed by SQL Server.",
-        results: [
-            "Robust transaction handling with input validation",
-            "Clear separation of data and business logic",
-            "Solid foundation for adding new account types",
-        ],
-        tools: ["C# Console", "SQL Server"],
-        image: "/MainMenu.png",
-        link: "https://github.com/AydonC/redAcademy_ATM_OF-EXCELLENCE",
+        tools: ["React","Supabase"],
+        image: "/avo.png",
+        link: "https://claude.ai/code/artifact/2bf68fdf-70ed-48a6-bb3a-5ad0fa3b6ef8",
     },
 ];
 
@@ -236,7 +196,7 @@ const CaseStudies = () => {
             </main>
 
             <footer className="relative z-10 bg-gray-900 py-3 text-center text-gray-400">
-                <p>&copy; {new Date().getFullYear()} Aydon Cupido. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} InnovAyd. All rights reserved.</p>
             </footer>
         </div>
     );

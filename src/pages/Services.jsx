@@ -41,49 +41,15 @@ const services = [
         ],
     },
     {
-        icon: LuDatabase,
-        title: "Database Design & Management",
-        summary:
-            "Schema design, queries and tuning with SQL Server and PostgreSQL to keep data fast and consistent.",
-        points: [
-            "Relational schema design",
-            "Query writing & optimization",
-            "SQL Server and PostgreSQL",
-        ],
-    },
-    {
-        icon: LuPalette,
-        title: "UI / UX Design & Implementation",
-        summary:
-            "User-friendly interfaces designed in Figma and faithfully built to spec — accessible and on-brand.",
-        points: [
-            "Figma wireframes & prototypes",
-            "Pixel-accurate implementation",
-            "Accessible, responsive layouts",
-        ],
-    },
-    {
         icon: LuWrench,
         title: "Maintenance, Bug Fixing & Support",
         summary:
-            "Keep your product stable and healthy with fixes, performance work, UAT support and smooth deployments.",
+            "Keep your product stable and healthy with fixes, performance work",
         points: [
             "Bug fixing & performance tuning",
-            "UAT and post-release support",
             "Deployments & ongoing maintenance",
         ],
-    },
-    {
-        icon: LuUsers,
-        title: "Agile Delivery & Collaboration",
-        summary:
-            "Work inside your team using Agile and SDLC practices to ship features that match business needs.",
-        points: [
-            "Sprint-based feature delivery",
-            "Cross-functional collaboration",
-            "Clear communication & updates",
-        ],
-    },
+    }
 ];
 
 const ServiceCard = ({ service, index }) => {
@@ -200,7 +166,7 @@ const Services = () => {
             </main>
 
             <footer className="relative z-10 bg-gray-900 py-3 text-center text-gray-400">
-                <p>&copy; {new Date().getFullYear()} Aydon Cupido. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} InnovAyd. All rights reserved.</p>
             </footer>
         </div>
     );
