@@ -121,10 +121,10 @@ const ProfilePage = () => {
                     <p className="text-gray-300 mb-4 ml-14 h-7">
                         <TypewriterText
                             words={[
-                                "Full Stack Engineer 💻",
-                                "Innovative Developer 🚀",
-                                "Problem Solver 🧩",
-                                "React & C# Specialist ⚛️",
+                                "Full Stack Engineer",
+                                "Innovative Developer",
+                                "Problem Solver",
+                                "React & C# Specialist",
                             ]}
                             className="text-purple-300 font-semibold font-code"
                         />
@@ -206,7 +206,7 @@ const ProfilePage = () => {
                         animations deadlock under React 19 StrictMode in this project. */}
                     {isModalOpen && (
                         <motion.div
-                            className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center"
+                            className="fixed inset-0 z-[100] bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.2 }}
@@ -236,7 +236,7 @@ const ProfilePage = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="mailto:cupido.aydon@gmail.com"
+                                        <a href="mailto:aydon.cupdio@innovayd.co.za"
                                             className="flex items-center justify-center gap-2 text-lg text-purple-400 font-bold hover:underline hover:text-purple-300 transition"
                                             target="_blank" rel="noopener noreferrer">
                                             <LuMail className="h-5 w-5" /> Send Me An Email

@@ -70,7 +70,7 @@ const Testimonials = () => {
                         <img
                             src={post.profileImage}
                             alt="Profile"
-                            className="w-12 h-12 rounded-full mr-4"
+                            className="w-12 h-12 rounded-full mr-4 object-cover shrink-0"
                         />
                         <div>
                             <a href={post.profileUrl} className="font-bold hover:underline cursor-pointer">{post.user}&nbsp;&nbsp; 🔗</a>
@@ -105,7 +105,7 @@ const Testimonials = () => {
                         <img
                             src={post.profileImage}
                             alt="Profile"
-                            className="w-12 h-12 rounded-full mr-4"
+                            className="w-12 h-12 rounded-full mr-4 object-cover shrink-0"
                         />
                         <div>
                             <a href={post.profileUrl} className="font-bold hover:underline">{post.user}&nbsp;&nbsp; 🔗</a>

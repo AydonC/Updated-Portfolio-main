@@ -130,6 +130,22 @@ h1, h2, h3, h4, h5 {
   .spotlight-card::before { transition: none; }
 }
 
+/* Slow green "live" pulse for projects currently running in production.
+   Uses box-shadow (no layout cost) so the ring gently breathes. Muted for
+   users who prefer reduced motion via the global block below. */
+@keyframes live-ring-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.35), 0 0 10px 0 rgba(34, 197, 94, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.8), 0 0 26px 3px rgba(34, 197, 94, 0.38);
+  }
+}
+.live-ring {
+  animation: live-ring-pulse 3.2s ease-in-out infinite;
+}
+
 /* src/styles.css or in your global styles file */
 @keyframes fadeIn {
     0% {

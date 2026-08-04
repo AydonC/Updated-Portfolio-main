@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { LuPin } from 'react-icons/lu';
+import { LuPin, LuArrowUpRight } from 'react-icons/lu';
 import { SiGithub } from 'react-icons/si';
 import { listContainer, listItem, handleSpotlight } from '../lib/motion';
 
 const postsData = [
     {
-        id: 2,
-        heading: 'AvoLands Leave Management System(Live Client Project)',
+        id: 'avolands',
+        heading: 'AvoLands Leave Management System',
         user: 'Aydon Cupido',
         username: '@aydonC',
         profileImage: '/aydon.jpg',
@@ -15,10 +15,10 @@ const postsData = [
         tools: '⚛️ ReactJS ,🔥 supabase',
         image: '/avo.png',
         video: null,
-        githubLink: 'https://claude.ai/code/artifact/2bf68fdf-70ed-48a6-bb3a-5ad0fa3b6ef8',
+        live: true, // Currently live in production for a client
     },
     {
-        id: 1,
+        id: 'tms',
         heading: '🚀 InnovAyd Task Management System',
         user: 'Aydon Cupido',
         username: '@aydonC',
@@ -27,10 +27,10 @@ const postsData = [
         tools: '🖥️ C# , ⚛️ ReactJS , 🗃️ SQL Server , 🔥 Firebase',
         image: '/tms.png',
         video: null,
-        githubLink: 'https://github.com/AydonC/InnovAydTaskManagementSystem', // GitHub link for the project
+        githubLink: 'https://github.com/AydonC/InnovAydTaskManagementSystem',
     },
     {
-        id: 2,
+        id: 'calculators',
         heading: '🧮 InnovAyd Calculators',
         user: 'Aydon Cupido',
         username: '@aydonC',
@@ -39,10 +39,10 @@ const postsData = [
         tools: '⚛️ ReactJS',
         image: '/calc.png',
         video: null,
-        githubLink: 'https://github.com/AydonC/InnovAydCalculators', // GitHub link for the project
+        githubLink: 'https://github.com/AydonC/InnovAydCalculators',
     },
     {
-        id: 3,
+        id: 'atm',
         heading: '🏦 ATM Simulator',
         user: 'Aydon Cupido',
         username: '@aydonC',
@@ -51,10 +51,10 @@ const postsData = [
         tools: '🖥️ C# Console App, 🗃️ SQL Server',
         image: '/MainMenu.png',
         video: null,
-        githubLink: 'https://github.com/AydonC/redAcademy_ATM_OF-EXCELLENCE', // GitHub link for the project
+        githubLink: 'https://github.com/AydonC/redAcademy_ATM_OF-EXCELLENCE',
     },
     {
-        id: 4,
+        id: 'cv-maker',
         heading: '📄 CV Maker',
         user: 'Aydon Cupido',
         username: '@aydonC',
@@ -63,10 +63,10 @@ const postsData = [
         tools: '⚛️ ReactJS',
         image: '/cv.png',
         video: null,
-        githubLink: 'https://github.com/AydonC/CV-Maker', // GitHub link for the project
+        githubLink: 'https://github.com/AydonC/CV-Maker',
     },
     {
-        id: 5,
+        id: 'hangman',
         heading: '🎮 Hangman Game',
         user: 'Aydon Cupido',
         username: '@aydonC',
@@ -75,9 +75,110 @@ const postsData = [
         tools: '🖥️ C# Windows Forms',
         image: '/hangman.PNG',
         video: null,
-        githubLink: 'https://github.com/AydonC/Hangman', // GitHub link for the project
+        githubLink: 'https://github.com/AydonC/Hangman',
     },
 ];
+
+const ProjectCard = ({ post }) => {
+    const { live } = post;
+    return (
+        <motion.div
+            variants={listItem}
+            whileHover={{ y: -4 }}
+            className={`relative mb-4 ${live ? 'mt-6' : ''}`}
+        >
+            {/* "Currently Live" badge — sits centered on the top of the green ring */}
+            {live && (
+                <span className="absolute -top-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-green-500/60 bg-gray-950 px-3 py-0.5 text-xs font-semibold text-green-300 shadow-sm shadow-green-900/40">
+                    <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+                    </span>
+                    Currently Live for Client
+                </span>
+            )}
+
+            <div
+                onMouseMove={handleSpotlight}
+                className={`spotlight-card relative overflow-hidden rounded-xl p-4 shadow-md transition-colors ${
+                    live
+                        ? 'live-ring border-2 border-green-500/60 bg-gray-900/40 hover:border-green-400/80'
+                        : 'border border-gray-800 bg-gray-900/40 hover:border-purple-500/40 hover:bg-gray-800/60'
+                }`}
+            >
+                <div className="mb-2 flex items-center">
+                    <img
+                        src={post.profileImage}
+                        alt="Profile"
+                        className="relative z-[40] mr-4 h-12 w-12 rounded-full object-cover shrink-0"
+                    />
+                    <div>
+                        <h3 className="font-bold">{post.user}</h3>
+                        <p className="text-sm text-gray-500">{post.username}</p>
+                    </div>
+                </div>
+                <div className="mb-2 text-2xl">
+                    <strong>{post.heading}</strong>
+                </div>
+                <p className="mb-2">{post.content}</p>
+
+                {post.image && (
+                    <div className="mb-2">
+                        <img
+                            src={post.image}
+                            alt="Post Media"
+                            loading="lazy"
+                            decoding="async"
+                            className="relative z-[40] w-full rounded-lg"
+                        />
+                    </div>
+                )}
+
+                {post.video && (
+                    <div className="mb-2">
+                        <video controls preload="none" className="w-full rounded-lg">
+                            <source src={post.video} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                )}
+
+                <div className="mb-4 flex flex-wrap gap-2">
+                    {post.tools.split(',').map((tool, i) => (
+                        <span
+                            key={`${post.id}-${i}`}
+                            className="rounded-full bg-purple-600/15 px-3 py-1 text-xs font-medium text-purple-300 ring-1 ring-purple-500/30"
+                        >
+                            {tool.trim()}
+                        </span>
+                    ))}
+                </div>
+
+                <div className="mt-2 flex flex-wrap items-center gap-4">
+                    {post.githubLink && (
+                        <a
+                            href={post.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 font-medium text-purple-400 hover:text-purple-300 hover:underline"
+                        >
+                            <SiGithub className="h-4 w-4" /> View on GitHub
+                        </a>
+                    )}
+                    {live && (
+                        <a
+                            href="#/case-studies"
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            className="inline-flex items-center gap-1.5 rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-green-900/40 transition-colors hover:bg-green-500"
+                        >
+                            View Case Study <LuArrowUpRight className="h-4 w-4" />
+                        </a>
+                    )}
+                </div>
+            </div>
+        </motion.div>
+    );
+};
 
 const Projects = () => {
     return (
@@ -93,125 +194,11 @@ const Projects = () => {
                 <LuPin className="h-4 w-4 -rotate-45" /> Pinned Project
             </div>
 
-            {/* First Post (Post with id 1) */}
-            {postsData.slice(0, 1).map(post => (
-                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} onMouseMove={handleSpotlight} className="spotlight-card relative overflow-hidden bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60">
-                    <div className="flex items-center mb-2">
-                        <img
-                            src={post.profileImage}
-                            alt="Profile"
-                            className="w-12 h-12 rounded-full mr-4 z-[40] relative"
-                        />
-                        <div>
-                            <h3 className="font-bold">{post.user}</h3>
-                            <p className="text-sm text-gray-500">{post.username}</p>
-                        </div>
-                    </div>
-                    <div className="mb-2 text-2xl">
-                        <strong>{post.heading}</strong>
-                    </div>
-                    <p className="mb-2">{post.content}</p>
-
-                    {post.image && (
-                        <div className="mb-2">
-                            <img src={post.image} alt="Post Media" loading="lazy" decoding="async" className="w-full rounded-lg z-[40] relative" />
-                        </div>
-                    )}
-
-                    {post.video && (
-                        <div className="mb-2">
-                            <video controls preload="none" className="w-full rounded-lg">
-                                <source src={post.video} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    )}
-
-                    <div className="mb-4 flex flex-wrap gap-2">
-                        {post.tools.split(',').map((tool, i) => (
-                            <span
-                                key={`${post.id}-${i}`}
-                                className="rounded-full bg-purple-600/15 px-3 py-1 text-xs font-medium text-purple-300 ring-1 ring-purple-500/30"
-                            >
-                                {tool.trim()}
-                            </span>
-                        ))}
-                    </div>
-
-                    {/* GitHub Link */}
-                    <div className="mt-2">
-                        <a
-                            href={post.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 font-medium text-purple-400 hover:text-purple-300 hover:underline"
-                        >
-                            <SiGithub className="h-4 w-4" /> View on GitHub
-                        </a>
-                    </div>
-                </motion.div>
+            {postsData.map((post) => (
+                <ProjectCard key={post.id} post={post} />
             ))}
 
-            {/* Regular Posts */}
-            {postsData.slice(1).map(post => (
-                <motion.div key={post.id} variants={listItem} whileHover={{ y: -4 }} onMouseMove={handleSpotlight} className="spotlight-card relative overflow-hidden bg-gray-900/40 border border-gray-800 p-4 rounded-xl shadow-md mb-4 transition-colors hover:border-purple-500/40 hover:bg-gray-800/60">
-                    <div className="flex items-center mb-2">
-                        {/* Profile image */}
-                        <img
-                            src={post.profileImage}
-                            alt="Profile"
-                            className="w-12 h-12 rounded-full mr-4"
-                        />
-                        <div>
-                            <h3 className="font-bold">{post.user}</h3>
-                            <p className="text-sm text-gray-500">{post.username}</p>
-                        </div>
-                    </div>
-                    <div className="mb-2 text-2xl">
-                        <strong>{post.heading}</strong>
-                    </div>
-                    <p className="mb-2">{post.content}</p>
-
-                    {/* Conditional rendering for image or video */}
-                    {post.image && (
-                        <div className="mb-2">
-                            <img src={post.image} alt="Post Media" loading="lazy" decoding="async" className="w-full rounded-lg z-[40] relative" />
-                        </div>
-                    )}
-
-                    {post.video && (
-                        <div className="mb-2">
-                            <video controls preload="none" className="w-full rounded-lg">
-                                <source src={post.video} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    )}
-                    <div className="mb-4 flex flex-wrap gap-2">
-                        {post.tools.split(',').map((tool, i) => (
-                            <span
-                                key={`${post.id}-${i}`}
-                                className="rounded-full bg-purple-600/15 px-3 py-1 text-xs font-medium text-purple-300 ring-1 ring-purple-500/30"
-                            >
-                                {tool.trim()}
-                            </span>
-                        ))}
-                    </div>
-
-                    {/* GitHub Link */}
-                    <div className="mt-2">
-                        <a
-                            href={post.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 font-medium text-purple-400 hover:text-purple-300 hover:underline"
-                        >
-                            <SiGithub className="h-4 w-4" /> View on GitHub
-                        </a>
-                    </div>
-                </motion.div>
-            ))}
-             <div className="mb-2 text-base">
+            <div className="mb-2 text-base">
                 <strong>To view my other projects, I recommend checking out my GitHub!</strong> <br />
                 <label
                     className="text-blue-500 hover:underline cursor-pointer"
@@ -219,7 +206,6 @@ const Projects = () => {
                 >
                     Click here to visit my GitHub!
                 </label>
-
             </div>
         </motion.div>
     );

@@ -66,7 +66,7 @@ const Feed = () => {
                         <img
                             src={post.profileImage}
                             alt="Profile"
-                            className="w-12 h-12 rounded-full mr-4"
+                            className="w-12 h-12 rounded-full mr-4 object-cover shrink-0"
                         />
                         <div>
                             <h3 className="font-bold">{post.user}</h3>
@@ -101,7 +101,7 @@ const Feed = () => {
                         <img
                             src={post.profileImage}
                             alt="Profile"
-                            className="w-12 h-12 rounded-full mr-4"
+                            className="w-12 h-12 rounded-full mr-4 object-cover shrink-0"
                         />
                         <div>
                             <h3 className="font-bold">{post.user}</h3>
