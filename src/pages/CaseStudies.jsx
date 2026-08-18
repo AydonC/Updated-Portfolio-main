@@ -27,7 +27,7 @@ const caseStudies = [
             "Removed the use of spreadsheets, reducing errors and confusion",
         ],
         tools: ["React","Supabase"],
-        image: "/avo.png",
+        image: "/avoNew.jpeg",
         link: "https://claude.ai/code/artifact/2bf68fdf-70ed-48a6-bb3a-5ad0fa3b6ef8",
     },
 ];

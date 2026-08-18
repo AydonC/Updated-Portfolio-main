@@ -13,7 +13,7 @@ const postsData = [
         profileImage: '/aydon.jpg',
         content: '📝 A Leave Management System where a company can track and log all employee leave requests.',
         tools: '⚛️ ReactJS ,🔥 supabase',
-        image: '/avo.png',
+        image: '/avoNew.jpeg',
         video: null,
         live: true, // Currently live in production for a client
     },
