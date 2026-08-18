@@ -14,7 +14,6 @@ const caseStudies = [
     {
         id: 1,
         title: "Leave Management System",
-        client: "AvoLands",
         year: "2026",
         summary:
             "Designed and built a full-stack leave management system that let a client's team create, assign and track leave requests in real time.",
