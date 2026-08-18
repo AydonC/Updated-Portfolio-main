@@ -7,7 +7,7 @@ import { listContainer, listItem, handleSpotlight } from '../lib/motion';
 const postsData = [
     {
         id: 'avolands',
-        heading: 'AvoLands Leave Management System',
+        heading: 'Leave Management System',
         user: 'Aydon Cupido',
         username: '@aydonC',
         profileImage: '/aydon.jpg',

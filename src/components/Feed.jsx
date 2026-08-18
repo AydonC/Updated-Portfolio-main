@@ -11,7 +11,7 @@ const postsData = [
         user: 'Aydon Cupido',
         username: '@aydonC',
         profileImage: '/aydon.jpg', 
-        content: 'Welcome Visitor! This is my portfolio site where I share details about my journey and make posts about my projects. I hope you enjoy this site and click on my links to connect with me! 🚀🔥🌐',
+        content: 'Welcome Visitor! This is my portfolio site where I share details about my journey and make posts about my projects. I hope you enjoy this site and click on my links to connect with me!:) ',
         image: '/him.jpg', 
         video: null, 
     },
