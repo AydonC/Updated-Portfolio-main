@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import emailjs from 'emailjs-com';
 import Resizer from 'react-image-file-resizer';
 
@@ -95,10 +96,18 @@ const ContactFormModal = () => {
 
 
 
-            {/* Modal */}
-            {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
-                    <div className="bg-[#1c1c1e] p-6 rounded-2xl shadow-lg w-96 text-center border border-purple-300">
+            {/* Modal — portalled to <body> so it escapes the post card's transform
+                (a transformed ancestor makes position:fixed resolve to the card,
+                not the viewport, which trapped the modal inside the card). */}
+            {isModalOpen && createPortal(
+                <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black bg-opacity-60 p-4 backdrop-blur-sm"
+                    onClick={closeModal}
+                >
+                    <div
+                        className="my-auto w-96 max-w-full rounded-2xl border border-purple-300 bg-[#1c1c1e] p-6 text-center shadow-lg"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         <h2 className="text-2xl text-gray-300 font-semibold mb-4">Leave a message!</h2>
 
                         {submitSuccess !== null && (
@@ -203,7 +212,8 @@ const ContactFormModal = () => {
                             Close
                         </button>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </div>
     );
